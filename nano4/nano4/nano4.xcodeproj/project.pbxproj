@@ -11,6 +11,7 @@
 		644F84E0241020A100412309 /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84DF241020A100412309 /* SetupView.swift */; };
 		644F84E2241020EF00412309 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E1241020EF00412309 /* MenuView.swift */; };
 		644F84E4241020FE00412309 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E3241020FE00412309 /* PauseView.swift */; };
+		644F84E7241043D100412309 /* cobra_cabeca.png in Resources */ = {isa = PBXBuildFile; fileRef = 644F84E6241043D000412309 /* cobra_cabeca.png */; };
 		64F9099C240EDEB700FF621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9099B240EDEB700FF621E /* AppDelegate.swift */; };
 		64F9099E240EDEB700FF621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9099D240EDEB700FF621E /* SceneDelegate.swift */; };
 		64F909A0240EDEB700FF621E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9099F240EDEB700FF621E /* ContentView.swift */; };
@@ -26,6 +27,7 @@
 		644F84DF241020A100412309 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		644F84E1241020EF00412309 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		644F84E3241020FE00412309 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
+		644F84E6241043D000412309 /* cobra_cabeca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cobra_cabeca.png; sourceTree = "<group>"; };
 		64F90998240EDEB700FF621E /* nano4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nano4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F9099B240EDEB700FF621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64F9099D240EDEB700FF621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		64F9099A240EDEB700FF621E /* nano4 */ = {
 			isa = PBXGroup;
 			children = (
+				644F84E6241043D000412309 /* cobra_cabeca.png */,
 				644F84E52410213E00412309 /* Spritekit */,
 				644F84DE2410200C00412309 /* SwuiftUIViews */,
 				64F9099B240EDEB700FF621E /* AppDelegate.swift */,
@@ -175,6 +178,7 @@
 				644F84DD240EE73200412309 /* GameScene.sks in Resources */,
 				64F909A8240EDEBA00FF621E /* LaunchScreen.storyboard in Resources */,
 				64F909A5240EDEBA00FF621E /* Preview Assets.xcassets in Resources */,
+				644F84E7241043D100412309 /* cobra_cabeca.png in Resources */,
 				64F909A2240EDEBA00FF621E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
