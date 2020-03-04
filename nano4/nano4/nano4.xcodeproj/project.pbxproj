@@ -63,6 +63,18 @@
 			path = SwuiftUIViews;
 			sourceTree = "<group>";
 		};
+		644F84E52410213E00412309 /* Spritekit */ = {
+			isa = PBXGroup;
+			children = (
+				64F909B0240EDF0400FF621E /* Actions.sks */,
+				64F909B1240EDF0400FF621E /* GameScene.sks */,
+				64F909B2240EDF0400FF621E /* GameScene.swift */,
+				64F909B3240EDF0400FF621E /* GameViewAdapter.swift */,
+				64F909AF240EDF0400FF621E /* GameViewController.swift */,
+			);
+			path = Spritekit;
+			sourceTree = "<group>";
+		};
 		64F9098F240EDEB700FF621E = {
 			isa = PBXGroup;
 			children = (
@@ -82,12 +94,8 @@
 		64F9099A240EDEB700FF621E /* nano4 */ = {
 			isa = PBXGroup;
 			children = (
+				644F84E52410213E00412309 /* Spritekit */,
 				644F84DE2410200C00412309 /* SwuiftUIViews */,
-				64F909B0240EDF0400FF621E /* Actions.sks */,
-				64F909B1240EDF0400FF621E /* GameScene.sks */,
-				64F909B2240EDF0400FF621E /* GameScene.swift */,
-				64F909B3240EDF0400FF621E /* GameViewAdapter.swift */,
-				64F909AF240EDF0400FF621E /* GameViewController.swift */,
 				64F9099B240EDEB700FF621E /* AppDelegate.swift */,
 				64F9099D240EDEB700FF621E /* SceneDelegate.swift */,
 				64F909A1240EDEBA00FF621E /* Assets.xcassets */,
