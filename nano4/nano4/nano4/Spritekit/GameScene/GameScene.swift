@@ -14,7 +14,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player: Player!
     
     var blockSpawner: BlockSpawner!
-
+    
+    var lifeSpawner: LifeSpawner!
+    
     
     var selfTime: TimeInterval = TimeInterval(0)
     
@@ -29,10 +31,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.player = Player(scene: self, node: playerNode)
         
         self.blockSpawner = BlockSpawner(self)
-    
+        
+        self.lifeSpawner = LifeSpawner(self)
+        
     }
-
-     override func update(_ currentTime: TimeInterval) {
+    
+    override func update(_ currentTime: TimeInterval) {
         if selfTime == 0 {
             selfTime = currentTime
             return
@@ -42,12 +46,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         selfTime = currentTime
         
+        self.player.update(CGFloat(deltaTime))
+        
         updatePosition(deltaTime: CGFloat(deltaTime))
-
-     }
+        
+    }
     
     func updatePosition(deltaTime: CGFloat) {
-        self.player.update(deltaTime)
+        self.lifeSpawner.update(deltaTime)
         self.blockSpawner.update(deltaTime)
     }
     
@@ -58,9 +64,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-    
+        
     }
-
+    
     
     // MARK: - Touch methods
     
@@ -93,4 +99,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
-    }
+}

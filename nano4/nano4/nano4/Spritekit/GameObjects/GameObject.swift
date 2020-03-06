@@ -25,6 +25,10 @@ class GameObject: Updateble{
         self.configurePhysics()
     }
     
+    deinit {
+        self.node.removeFromParent()
+    }
+    
     func update(_ deltaTime: CGFloat) {
         
     }
