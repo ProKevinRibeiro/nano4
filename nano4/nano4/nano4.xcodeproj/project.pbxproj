@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		563E695B2412D30200333DDD /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563E695A2412D30100333DDD /* EndGameView.swift */; };
 		644F84E0241020A100412309 /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84DF241020A100412309 /* SetupView.swift */; };
 		644F84E2241020EF00412309 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E1241020EF00412309 /* FirstView.swift */; };
 		644F84E4241020FE00412309 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E3241020FE00412309 /* PauseView.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		563E695A2412D30100333DDD /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
 		644F84DF241020A100412309 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		644F84E1241020EF00412309 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		644F84E3241020FE00412309 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				64F9099F240EDEB700FF621E /* ContentView.swift */,
+				563E695A2412D30100333DDD /* EndGameView.swift */,
 				644F84DF241020A100412309 /* SetupView.swift */,
 				644F84E1241020EF00412309 /* FirstView.swift */,
 				644F84E3241020FE00412309 /* PauseView.swift */,
@@ -256,11 +259,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64F909B6240EDF0500FF621E /* GameScene.swift in Sources */,
 				644F84E2241020EF00412309 /* FirstView.swift in Sources */,
+				563E695B2412D30200333DDD /* EndGameView.swift in Sources */,
 				644F85002411A48600412309 /* GameObject.swift in Sources */,
 				644F85072411A49700412309 /* LifeSpawner.swift in Sources */,
-				644F84E2241020EF00412309 /* MenuView.swift in Sources */,
+				644F84E2241020EF00412309 /* FirstView.swift in Sources */,
 				64F909B5240EDF0500FF621E /* GameViewController.swift in Sources */,
 				644F85082411A49800412309 /* ContactMask.swift in Sources */,
 				644F84E4241020FE00412309 /* PauseView.swift in Sources */,
