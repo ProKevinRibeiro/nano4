@@ -10,13 +10,6 @@ import Foundation
 import SpriteKit
 
 class Player: GameObject{
-
-//    override func update(_ deltaTime: CGFloat) {
-//        
-//        let dX = deltaTime * 100
-//        
-//        self.node.position.x += dX
-//    }
     
     override func configurePhysics() {
         
