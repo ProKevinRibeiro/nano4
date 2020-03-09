@@ -1,5 +1,5 @@
 //
-//  lifeSpawner.swift
+//  BlockSpawner.swift
 //  SpriteKitWshop
 //
 //  Created by Kevin Ribeiro on 05/03/20.
@@ -9,14 +9,16 @@
 import Foundation
 import SpriteKit
 
-class lifeSpawner: Spawner {
+class LifeSpawner: Spawner {
     
     var spawnCountdown: TimeInterval = TimeInterval(0)
     var scene: GameScene!
-    var blocks: [Block]! = []
+    var lifes: [Lifes]! = []
+    let lifeNode: SKNode!
     
     init(_ gameScene: GameScene) {
         self.scene = gameScene
+        lifeNode = (scene.childNode(withName: "life")!.copy() as! SKNode)
     }
     
     override func update(_ deltaTime: CGFloat) {
@@ -24,41 +26,51 @@ class lifeSpawner: Spawner {
         self.spawnCountdown -= TimeInterval(deltaTime)
         
         if spawnCountdown <= 0 {
+            
+            
             self.spawn()
-            self.spawnCountdown = TimeInterval(Int.random(in: 2...4))
+            
+            let  possibleSpawnIntervals: [CGFloat] = [self.lifeNode.frame.size.height/200,
+                                                      2*self.lifeNode.frame.size.height/200,
+                                                      3*self.lifeNode.frame.size.height/200]
+            
+            self.spawnCountdown += TimeInterval(possibleSpawnIntervals.randomElement()!)
         }
         
-        self.blocks.forEach { ($0.update(deltaTime)) }
+        self.lifes.forEach { ($0.update(deltaTime)) }
         
-        self.clearBlocks()
+        self.clearLifes()
     }
     
     func spawn() {
-        let newBlock = self.getNewBlock()
+        let newLife = self.getNewLife()
         
-        self.blocks.append(newBlock)
-        self.scene.addChild(newBlock.node)
+        self.lifes.append(newLife)
+        self.scene.addChild(newLife.node)
     }
     
-    func getNewBlock() -> Block {
-        let blockNode = self.scene.childNode(withName: "block")!.copy() as! SKNode
+    func getNewLife() -> Lifes {
         
-            let spawnPoint: [CGPoint] = [CGPoint(x: (self.scene.size.width/5)/2, y: self.scene.size.height),
-                                         CGPoint(x: 2*(self.scene.size.width/5)/2, y: self.scene.size.height),
-                                         CGPoint(x: 3*(self.scene.size.width/5)/2, y: self.scene.size.height),
-                                         CGPoint(x: 4*(self.scene.size.width/5)/2, y: self.scene.size.height),
-                                         CGPoint(x: 5*(self.scene.size.width/5)/2, y: self.scene.size.height)]
+        let lifeNode = (self.scene.childNode(withName: "life")!.copy() as! SKNode)
         
-        blockNode.position = spawnPoint.randomElement()!
+        let lifeNodeHalfHeight = lifeNode.frame.size.height/2
         
-        return Block(scene: self.scene, node: blockNode)
+        let spawnPoint: [CGPoint] = [CGPoint(x: (-2*self.scene.size.width/5), y: self.scene.size.height/2 + lifeNodeHalfHeight),
+                                     CGPoint(x: (-self.scene.size.width/5), y: self.scene.size.height/2 + lifeNodeHalfHeight),
+                                     CGPoint(x: 0, y: self.scene.size.height/2 + lifeNodeHalfHeight),
+                                     CGPoint(x: (self.scene.size.width/5), y: self.scene.size.height/2 + lifeNodeHalfHeight),
+                                     CGPoint(x: (2*self.scene.size.width/5), y: self.scene.size.height/2 + lifeNodeHalfHeight)]
+        
+        lifeNode.position = spawnPoint.randomElement()!
+        
+        return Lifes(scene: self.scene, node: lifeNode)
     }
     
-    func clearBlocks() {
-        for (n, block) in self.blocks.enumerated() {
-            if block.node.position.y < -self.scene.size.height/2 {
-                block.node.removeFromParent()
-                self.blocks.remove(at: n)
+    func clearLifes() {
+        for (n, life) in self.lifes.enumerated() {
+            if life.node.position.y < -self.scene.size.height/2-life.node.frame.size.height {
+                life.node.removeFromParent()
+                self.lifes.remove(at: n)
             }
         }
     }
