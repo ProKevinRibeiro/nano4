@@ -12,11 +12,8 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             
-            ZStack {
-                GameViewAdapter()
-                   .edgesIgnoringSafeArea(.all)
-            }
-            
+            GameViewAdapter()
+                .edgesIgnoringSafeArea(.all)
             
             ZStack {
                 Image("fundo").resizable()
@@ -36,7 +33,7 @@ struct ContentView: View {
                         }.buttonStyle(PlainButtonStyle())
                         
                         Image("charme")
-                           
+                        
                         
                         Button(action: {
                             print("botao apertado")
@@ -44,7 +41,7 @@ struct ContentView: View {
                         }) {
                             Image("botao_direita")
                         }.buttonStyle(PlainButtonStyle())
-                       
+                        
                     }
                 }
             }
@@ -57,10 +54,10 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         
         Group {
-        ContentView()
-        
-         ContentView()
-        .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+            ContentView()
+            
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
             
         }
     }
