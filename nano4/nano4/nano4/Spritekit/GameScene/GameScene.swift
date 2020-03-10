@@ -99,4 +99,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
+    func moveToLeft() {
+        print("left")
+    }
+    
+    func moveToRight() {
+        print("right")
+    }
+    
 }
