@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class Lifes: GameObject {
+class Bar: GameObject {
     
     override func update(_ deltaTime: CGFloat) {
         
@@ -22,8 +22,8 @@ class Lifes: GameObject {
         
         if let body = self.node.physicsBody {
             
-            body.categoryBitMask = UInt32(ContactMask.life.rawValue)
-            body.contactTestBitMask = UInt32(ContactMask.player.rawValue) | UInt32(ContactMask.block.rawValue)
+            //body.categoryBitMask = UInt32(ContactMask.bar.rawValue)
+            //body.contactTestBitMask = UInt32(ContactMask.player.rawValue)
             body.collisionBitMask = 0
         }
     }

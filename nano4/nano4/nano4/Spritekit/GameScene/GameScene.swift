@@ -17,6 +17,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var lifeSpawner: LifeSpawner!
     
+    var barSpawner: BarSpawner!
+    
     
     var selfTime: TimeInterval = TimeInterval(0)
     
@@ -33,6 +35,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.blockSpawner = BlockSpawner(self)
         
         self.lifeSpawner = LifeSpawner(self)
+        
+        self.barSpawner = BarSpawner(self)
         
     }
     
@@ -55,6 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func updatePosition(deltaTime: CGFloat) {
         self.lifeSpawner.update(deltaTime)
         self.blockSpawner.update(deltaTime)
+        self.barSpawner.update(deltaTime)
     }
     
     // MARK: - ContactDelegate
@@ -100,11 +105,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func moveToLeft() {
+        
+        for bar in barSpawner.bars {
+            
+            if player.node.position.x > bar.node.position.x {
+                
+                if player.node.position.y + player.node.frame.size.height/2 > bar.node.position.y - bar.node.frame.size.height/2 && player.node.position.y - player.node.frame.size.height/2 < bar.node.position.y + bar.node.frame.size.height/2 {
+                    
+                    if player.node.position.x - player.node.frame.size.width/2 - 10 < bar.node.position.x{
+                        
+                        return
+                    }
+                }
+            }
+        }
+        
         player.moveToLeft()
         
     }
     
     func moveToRight() {
+        
+        for bar in barSpawner.bars {
+            
+            if player.node.position.x < bar.node.position.x {
+                
+                if player.node.position.y + player.node.frame.size.height/2 > bar.node.position.y - bar.node.frame.size.height/2 && player.node.position.y - player.node.frame.size.height/2 < bar.node.position.y + bar.node.frame.size.height/2 {
+                    
+                    if player.node.position.x + player.node.frame.size.width/2 + 10 > bar.node.position.x{
+                        
+                        return
+                    }
+                }
+            }
+        }
+        
         player.moveToRight()
     }
     

@@ -22,6 +22,8 @@
 		644F85092411A49800412309 /* Spawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F85042411A49700412309 /* Spawner.swift */; };
 		644F850A2411A49800412309 /* BlockSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F85052411A49700412309 /* BlockSpawner.swift */; };
 		644F850B2411A49800412309 /* Lifes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F85062411A49700412309 /* Lifes.swift */; };
+		644F8513241846F700412309 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F8512241846F700412309 /* Bar.swift */; };
+		644F85152418478400412309 /* BarSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F85142418478400412309 /* BarSpawner.swift */; };
 		64F9099C240EDEB700FF621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9099B240EDEB700FF621E /* AppDelegate.swift */; };
 		64F9099E240EDEB700FF621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9099D240EDEB700FF621E /* SceneDelegate.swift */; };
 		64F909A0240EDEB700FF621E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9099F240EDEB700FF621E /* ContentView.swift */; };
@@ -48,6 +50,8 @@
 		644F85042411A49700412309 /* Spawner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spawner.swift; sourceTree = "<group>"; };
 		644F85052411A49700412309 /* BlockSpawner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockSpawner.swift; sourceTree = "<group>"; };
 		644F85062411A49700412309 /* Lifes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lifes.swift; sourceTree = "<group>"; };
+		644F8512241846F700412309 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		644F85142418478400412309 /* BarSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSpawner.swift; sourceTree = "<group>"; };
 		64F90998240EDEB700FF621E /* nano4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nano4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F9099B240EDEB700FF621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64F9099D240EDEB700FF621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				644F85022411A49700412309 /* LifeSpawner.swift */,
 				644F85042411A49700412309 /* Spawner.swift */,
 				644F85052411A49700412309 /* BlockSpawner.swift */,
+				644F85142418478400412309 /* BarSpawner.swift */,
 			);
 			path = Spawner;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 				644F84FA2411A48600412309 /* Block.swift */,
 				644F85062411A49700412309 /* Lifes.swift */,
 				644F84FC2411A48600412309 /* Player.swift */,
+				644F8512241846F700412309 /* Bar.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -271,6 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				644F84E2241020EF00412309 /* FirstView.swift in Sources */,
+				644F8513241846F700412309 /* Bar.swift in Sources */,
+				644F85152418478400412309 /* BarSpawner.swift in Sources */,
 				563E695B2412D30200333DDD /* EndGameView.swift in Sources */,
 				644F85002411A48600412309 /* GameObject.swift in Sources */,
 				644F85072411A49700412309 /* LifeSpawner.swift in Sources */,
