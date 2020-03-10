@@ -72,7 +72,7 @@ struct EndGameView: View {
                                
                                Spacer()
                                    
-                               NavigationLink(destination: PauseView()) {
+                               NavigationLink(destination: ContentView()) {
                                    Text("< Toque para continuar >")
                                        .fontWeight(.black)
                                    .foregroundColor(self.green_tone)
