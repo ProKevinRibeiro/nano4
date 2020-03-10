@@ -53,6 +53,13 @@ class LifeSpawner: Spawner {
         
         let lifeNode = (self.scene.childNode(withName: "life")!.copy() as! SKNode)
         
+        for child in lifeNode.children {
+            guard let childNode = child as? SKLabelNode else { continue }
+            if childNode.name == "lifeLabel" {
+                childNode.text = String(Int.random(in: 1...5))
+            }
+        }
+        
         let lifeNodeHalfHeight = lifeNode.frame.size.height/2
         
         let spawnPoint: [CGPoint] = [CGPoint(x: (-2*self.scene.size.width/5), y: self.scene.size.height/2 + lifeNodeHalfHeight),

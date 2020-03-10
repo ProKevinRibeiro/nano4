@@ -81,6 +81,14 @@ class BlockSpawner: Spawner {
         
         let blockNode = (self.scene.childNode(withName: "block")!.copy() as! SKNode)
         
+        for child in blockNode.children {
+            guard let childNode = child as? SKLabelNode else { continue }
+            
+            if childNode.text == "block" {
+                childNode.text = String(Int.random(in: 1...50))
+            }
+        }
+        
         let blockNodeHalfHeight = blockNode.frame.size.height/2
         
         let spawnPoint: [CGPoint] = [CGPoint(x: (-2*self.scene.size.width/5), y: self.scene.size.height/2 + blockNodeHalfHeight),
@@ -96,11 +104,28 @@ class BlockSpawner: Spawner {
     
     func getNewLineOfBlocks() -> [Block] {
         
-        let blockNode = [(self.scene.childNode(withName: "block")!.copy() as! SKNode),
+        var blockNode = [(self.scene.childNode(withName: "block")!.copy() as! SKNode),
                          (self.scene.childNode(withName: "block")!.copy() as! SKNode),
                          (self.scene.childNode(withName: "block")!.copy() as! SKNode),
                          (self.scene.childNode(withName: "block")!.copy() as! SKNode),
                          (self.scene.childNode(withName: "block")!.copy() as! SKNode)]
+        
+        for node in blockNode {
+            
+            for child in node.children {
+                guard let childNode = child as? SKLabelNode else { continue }
+                
+                if childNode.text == "block" {
+                    childNode.text = String(Int.random(in: 1...50))
+                }
+                if node == blockNode[0] {
+                    childNode.text = String(Int.random(in: 1...4))
+                }
+            }
+            
+        }
+        
+        blockNode.shuffle()
         
         let blockNodeHalfHeight = blockNode[0].frame.size.height/2
         
