@@ -18,17 +18,18 @@ class GameViewController: UIViewController {
         
         let view = SKView()
 
-        if let scene = SKScene(fileNamed: "GameScene.sks") {
+       // if let scene = SKScene(fileNamed: "GameScene.sks") {
 
-        scene.scaleMode = .aspectFit
-        view.presentScene(scene)
+        
+        Model.shared.scene.scaleMode = .aspectFit
+        view.presentScene(Model.shared.scene)
         
         view.ignoresSiblingOrder = true
         view.showsFPS = true
         view.showsNodeCount = true
             
         self.view = view
-        }
+       // }
     }
 
     override var shouldAutorotate: Bool {

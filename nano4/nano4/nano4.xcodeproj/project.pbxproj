@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		563E695B2412D30200333DDD /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563E695A2412D30100333DDD /* EndGameView.swift */; };
+		56FA5A0A241804C3003ACDE9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA5A09241804C3003ACDE9 /* Model.swift */; };
 		644F84E0241020A100412309 /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84DF241020A100412309 /* SetupView.swift */; };
 		644F84E2241020EF00412309 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E1241020EF00412309 /* FirstView.swift */; };
 		644F84E4241020FE00412309 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E3241020FE00412309 /* PauseView.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		563E695A2412D30100333DDD /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
+		56FA5A09241804C3003ACDE9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		644F84DF241020A100412309 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		644F84E1241020EF00412309 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		644F84E3241020FE00412309 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56FA5A08241804A4003ACDE9 /* SharedData */ = {
+			isa = PBXGroup;
+			children = (
+				56FA5A09241804C3003ACDE9 /* Model.swift */,
+			);
+			path = SharedData;
+			sourceTree = "<group>";
+		};
 		644F84DE2410200C00412309 /* SwuiftUIViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 		64F9099A240EDEB700FF621E /* nano4 */ = {
 			isa = PBXGroup;
 			children = (
+				56FA5A08241804A4003ACDE9 /* SharedData */,
 				644F85112411A57800412309 /* Delegate */,
 				644F84E52410213E00412309 /* Spritekit */,
 				644F84DE2410200C00412309 /* SwuiftUIViews */,
@@ -274,6 +285,7 @@
 				644F84FD2411A48600412309 /* GameScene.swift in Sources */,
 				64F9099C240EDEB700FF621E /* AppDelegate.swift in Sources */,
 				644F84E0241020A100412309 /* SetupView.swift in Sources */,
+				56FA5A0A241804C3003ACDE9 /* Model.swift in Sources */,
 				64F9099E240EDEB700FF621E /* SceneDelegate.swift in Sources */,
 				644F84FF2411A48600412309 /* Block.swift in Sources */,
 				64F909B4240EDF0500FF621E /* GameViewAdapter.swift in Sources */,
@@ -415,7 +427,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"nano4/Preview Content\"";
-				DEVELOPMENT_TEAM = PS78UKHFKZ;
+				DEVELOPMENT_TEAM = P65XH66N6F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = nano4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -435,7 +447,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"nano4/Preview Content\"";
-				DEVELOPMENT_TEAM = PS78UKHFKZ;
+				DEVELOPMENT_TEAM = P65XH66N6F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = nano4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

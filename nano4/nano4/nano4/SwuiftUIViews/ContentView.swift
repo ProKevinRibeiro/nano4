@@ -30,6 +30,7 @@ struct ContentView: View {
                         
                         Button(action: {
                             print("botao apertado")
+                            Model.shared.scene.moveToLeft()
                         }) {
                             Image("botao_esquerda")
                         }.buttonStyle(PlainButtonStyle())
@@ -39,6 +40,7 @@ struct ContentView: View {
                         
                         Button(action: {
                             print("botao apertado")
+                            Model.shared.scene.moveToRight()
                         }) {
                             Image("botao_direita")
                         }.buttonStyle(PlainButtonStyle())
