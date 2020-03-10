@@ -100,11 +100,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func moveToLeft() {
-        print("left")
+        player.moveToLeft()
+        
     }
     
     func moveToRight() {
-        print("right")
+        player.moveToRight()
     }
     
 }
