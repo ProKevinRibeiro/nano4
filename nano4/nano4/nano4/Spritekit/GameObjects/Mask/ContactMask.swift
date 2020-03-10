@@ -12,5 +12,6 @@ enum ContactMask: UInt8 {
     case player = 0b00000001
     case block = 0b00000010
     case life = 0b00000100
+    //case bar = 0b00001000
     }
 
