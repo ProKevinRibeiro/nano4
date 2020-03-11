@@ -12,6 +12,28 @@ import SpriteKit
 class Player: GameObject{
     
     var lifes: Int = 10 // Starting value for lifes
+    var tails = [Tail]()
+    
+    override init(scene: GameScene?, node: SKNode?) {
+        super.init(scene: scene, node: node)
+        
+        self.configureTail()
+    }
+    
+    func configureTail() {
+        for _ in 1...self.lifes {
+            self.addTail()
+        }
+    }
+    
+    func onLifeAdded(_ amount: Int) {
+        self.lifes += amount
+        
+        for _ in 1...amount {
+            self.addTail()
+        }
+        
+    }
     
     override func configurePhysics() {
         
@@ -23,8 +45,25 @@ class Player: GameObject{
         }
     }
     
+    
+    
     override func update(_ deltaTime: CGFloat) {
         self.getLifesNode().text = "\(self.lifes)"
+        
+        self.tails.forEach { $0.update(deltaTime) }
+        
+        if let firstTail = self.tails.first {
+            if abs(self.node.position.x - firstTail.node.position.x) > 40 {
+
+                 let pos = CGPoint(x: self.node.position.x, y: firstTail.node.position.y)
+                 
+                 let animation = SKAction.move(to: pos, duration: 0.3)
+                 
+//                 print("Node", self.node.name, "updating", nextTail.node.name, pos)
+                
+                 firstTail.node.run(animation)
+            }
+        }
     }
     
     func onLifeTaken() {
@@ -67,5 +106,33 @@ class Player: GameObject{
     
     func getLifesNode() -> SKLabelNode {
         return self.node.childNode(withName: "lifes") as! SKLabelNode
+    }
+    
+    func addTail() {
+        let tailNode = self.getTailNode()
+        let newTail = Tail(scene: self.scene, node: tailNode)
+        
+        let tailYOffset = tailNode.size.height * CGFloat(self.tails.count) + (self.node as! SKSpriteNode).size.height
+        
+        tailNode.position = CGPoint(x: self.node.position.x, y: self.node.position.y - tailYOffset)
+        
+        if let lastTail = self.tails.last {
+            lastTail.nextTail = newTail
+        }
+        
+        self.tails.append(newTail)
+        self.scene.addChild(tailNode)
+     
+        
+        tailNode.name = "\(self.tails.count)"
+    }
+    
+    func getTailNode() -> SKSpriteNode {
+        let node = self.scene.childNode(withName: "tail")!.copy() as! SKSpriteNode
+        
+        node.removeFromParent()
+        
+        return node
+        
     }
 }

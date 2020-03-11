@@ -99,7 +99,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }).first {
                 let lifes = life.getLifeCount()
                 self.lifeSpawner.removeLife(life)
-                self.player.lifes += lifes
+                self.player.onLifeAdded(lifes)
             }
         }
         
