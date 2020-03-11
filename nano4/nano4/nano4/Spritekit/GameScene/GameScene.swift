@@ -50,6 +50,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         selfTime = currentTime
         
+        guard deltaTime < 0.1 else  { return } // Nao atualiza se o deltaTime for grande
+        
+        
+        
         self.player.update(CGFloat(deltaTime))
         
         updatePosition(deltaTime: CGFloat(deltaTime))
@@ -87,6 +91,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 b.node == other
             }).first {
                 block.onCollision()
+            }
+        } else if other.name!.contains("life")  {
+            
+            if let life = self.lifeSpawner.lifes.filter({ (b) -> Bool in
+                b.node == other
+            }).first {
+                let lifes = life.getLifeCount()
+                self.lifeSpawner.removeLife(life)
+                self.player.lifes += lifes
             }
         }
         

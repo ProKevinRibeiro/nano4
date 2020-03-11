@@ -27,4 +27,12 @@ class Lifes: GameObject {
             body.collisionBitMask = 0
         }
     }
+    
+    func getLifeCount() -> Int {
+        return Int(self.getLabelNode().text!)!
+    }
+    
+    func getLabelNode() -> SKLabelNode {
+        return self.node.childNode(withName: "lifeLabel") as! SKLabelNode
+    }
 }

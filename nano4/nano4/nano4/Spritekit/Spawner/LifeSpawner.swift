@@ -86,4 +86,9 @@ class LifeSpawner: Spawner {
         
     }
     
+    func removeLife(_ life: Lifes) {
+        
+        life.node.removeFromParent()
+        self.lifes = self.lifes.filter { $0.node.parent != nil }    }
+    
 }
