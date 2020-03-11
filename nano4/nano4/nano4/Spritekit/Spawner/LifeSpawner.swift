@@ -74,12 +74,16 @@ class LifeSpawner: Spawner {
     }
     
     func clearLifes() {
-        for (n, life) in self.lifes.enumerated() {
+        for (life) in self.lifes {
             if life.node.position.y < -self.scene.size.height/2-life.node.frame.size.height {
                 life.node.removeFromParent()
-                self.lifes.remove(at: n)
+                
             }
         }
+        
+        self.lifes = self.lifes.filter { $0.node.parent != nil }
+        
+        
     }
     
 }

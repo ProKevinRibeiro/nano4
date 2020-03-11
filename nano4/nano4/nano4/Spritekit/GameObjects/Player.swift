@@ -11,6 +11,8 @@ import SpriteKit
 
 class Player: GameObject{
     
+    var lifes: Int = 10 // Starting value for lifes
+    
     override func configurePhysics() {
         
         if let body = self.node.physicsBody {
@@ -21,6 +23,13 @@ class Player: GameObject{
         }
     }
     
+    override func update(_ deltaTime: CGFloat) {
+        self.getLifesNode().text = "\(self.lifes)"
+    }
+    
+    func onLifeTaken() {
+        self.lifes -= 1
+    }
     
     func moveToLeft() {
         let screenWidht = self.scene.frame.size.width
@@ -54,5 +63,9 @@ class Player: GameObject{
             
             self.node.position.x =  self.node.position.x + pos
         }
+    }
+    
+    func getLifesNode() -> SKLabelNode {
+        return self.node.childNode(withName: "lifes") as! SKLabelNode
     }
 }

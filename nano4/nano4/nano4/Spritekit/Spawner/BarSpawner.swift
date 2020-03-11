@@ -44,7 +44,7 @@ class BarSpawner: Spawner {
     
     func spawn() {
         
-        for n in 0..<Int.random(in: 1...2) {
+        for _ in 0..<Int.random(in: 1...2) {
             let newBar = self.getNewBar()
         
             self.bars.append(newBar)
@@ -69,12 +69,13 @@ class BarSpawner: Spawner {
     }
     
     func clearBars() {
-        for (n, bar) in self.bars.enumerated() {
+        for ( bar) in self.bars {
             if bar.node.position.y < -self.scene.size.height/2 - bar.node.frame.size.height {
                 bar.node.removeFromParent()
-                self.bars.remove(at: n)
             }
         }
+        
+        self.bars = self.bars.filter { $0.node.parent != nil }
     }
     
 }

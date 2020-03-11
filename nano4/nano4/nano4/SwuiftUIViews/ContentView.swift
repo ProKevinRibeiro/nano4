@@ -26,7 +26,7 @@ struct ContentView: View {
                     HStack {
                         
                         Button(action: {
-                            print("botao apertado")
+//                            print("botao apertado")
                             Model.shared.scene.moveToLeft()
                         }) {
                             Image("botao_esquerda")
@@ -36,7 +36,7 @@ struct ContentView: View {
                         
                         
                         Button(action: {
-                            print("botao apertado")
+//                            print("botao apertado")
                             Model.shared.scene.moveToRight()
                         }) {
                             Image("botao_direita")
@@ -50,15 +50,15 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        Group {
-            ContentView()
-            
-            ContentView()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-            
-        }
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        Group {
+//            ContentView()
+//            
+//            ContentView()
+//                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+//            
+//        }
+//    }
+//}

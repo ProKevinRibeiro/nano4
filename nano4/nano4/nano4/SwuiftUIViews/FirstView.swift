@@ -46,13 +46,13 @@ struct FirstView: View {
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            FirstView()
-            
-            FirstView()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-        }
-    }
-}
+//struct MenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            FirstView()
+//            
+//            FirstView()
+//                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+//        }
+//    }
+//}

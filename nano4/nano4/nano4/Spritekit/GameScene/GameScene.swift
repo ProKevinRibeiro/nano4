@@ -66,8 +66,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
+        guard let nodeA = contact.bodyA.node else { return }
+        guard let nodeB = contact.bodyB.node else { return }
+        guard nodeA.name == "player" || nodeB.name == "player" else { return }
+        
+        if nodeA.name == "player" {
+            self.playerCollisionStarted(playerNode: nodeA, other: nodeB)
+        } else if nodeB.name == "player" {
+            self.playerCollisionStarted(playerNode: nodeB, other: nodeA)
+        }
+        
     }
     
+    
+    
+    func playerCollisionStarted(playerNode: SKNode, other: SKNode) {
+        
+        if other.name!.contains("block")  {
+            if let block = self.blockSpawner.blocks.filter({ (b) -> Bool in
+                b.node == other
+            }).first {
+                block.onCollision()
+            }
+        }
+        
+    }
     func didEnd(_ contact: SKPhysicsContact) {
         
     }
