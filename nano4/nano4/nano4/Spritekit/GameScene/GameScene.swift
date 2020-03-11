@@ -12,13 +12,11 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player: Player!
-    
     var blockSpawner: BlockSpawner!
-    
     var lifeSpawner: LifeSpawner!
-    
     var barSpawner: BarSpawner!
     
+    var stopPositionUpdating: Bool = false
     
     var selfTime: TimeInterval = TimeInterval(0)
     
@@ -52,7 +50,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.player.update(CGFloat(deltaTime))
         
-        updatePosition(deltaTime: CGFloat(deltaTime))
+        if !self.stopPositionUpdating {
+            updatePosition(deltaTime: CGFloat(deltaTime))
+        }
         
     }
     
@@ -65,11 +65,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - ContactDelegate
     
     func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.node?.name == "player" || contact.bodyB.node?.name == "player" {
+           
+            stopPositionUpdating(stop: true)
         
+        }
+        else {
+            
+            stopPositionUpdating(stop: false)
+        }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
         
+        stopPositionUpdating(stop: false)
+    }
+    
+    func stopPositionUpdating(stop: Bool){
+        self.stopPositionUpdating = stop
+        return
     }
     
     
@@ -106,13 +120,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func moveToLeft() {
         
+        if self.stopPositionUpdating {
+            return
+        }
+        
         for bar in barSpawner.bars {
             
             if player.node.position.x > bar.node.position.x {
                 
-                if player.node.position.y + player.node.frame.size.height/2 > bar.node.position.y - bar.node.frame.size.height/2 && player.node.position.y - player.node.frame.size.height/2 < bar.node.position.y + bar.node.frame.size.height/2 {
+                let screenWidht = self.scene!.size.width
+                
+                if player.node.position.y + player.node.frame.size.width/2 > bar.node.position.y - bar.node.frame.size.height/2 && player.node.position.y - player.node.frame.size.width/2 < bar.node.position.y + bar.node.frame.size.height/2 {
                     
-                    if player.node.position.x - player.node.frame.size.width/2 - 10 < bar.node.position.x{
+                    if player.node.position.x - screenWidht/10 - 10 < bar.node.position.x{
                         
                         return
                     }
@@ -126,13 +146,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func moveToRight() {
         
+        if self.stopPositionUpdating {
+            return
+        }
+        
         for bar in barSpawner.bars {
             
             if player.node.position.x < bar.node.position.x {
                 
-                if player.node.position.y + player.node.frame.size.height/2 > bar.node.position.y - bar.node.frame.size.height/2 && player.node.position.y - player.node.frame.size.height/2 < bar.node.position.y + bar.node.frame.size.height/2 {
+                let screenWidht = self.scene!.size.width
+                
+                if player.node.position.y + player.node.frame.size.width/2 > bar.node.position.y - bar.node.frame.size.height/2 && player.node.position.y - player.node.frame.size.width/2 < bar.node.position.y + bar.node.frame.size.height/2 {
                     
-                    if player.node.position.x + player.node.frame.size.width/2 + 10 > bar.node.position.x{
+                    if player.node.position.x + screenWidht/10 + 10 > bar.node.position.x{
                         
                         return
                     }
