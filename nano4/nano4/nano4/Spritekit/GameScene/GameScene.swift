@@ -96,6 +96,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 b.node == other
             }).first {
                 block.onCollision()
+                
             }
         } else if other.name!.contains("life")  {
             
@@ -104,6 +105,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }).first {
                 let lifes = life.getLifeCount()
                 self.lifeSpawner.removeLife(life)
+                stopPositionUpdating(stop: false)
                 self.player.onLifeAdded(lifes)
             }
         }
