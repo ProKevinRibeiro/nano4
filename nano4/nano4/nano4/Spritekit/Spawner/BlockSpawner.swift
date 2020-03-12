@@ -56,11 +56,44 @@ class BlockSpawner: Spawner {
         self.clearBlocks()
     }
     
+    func setAlpha(count: Int) -> CGFloat{
+        
+        if count <= 50 {
+            if count <= 40 {
+                if count <= 30 {
+                    if count <= 20 {
+                        if count <= 10 {
+                            return 0.2
+                        }
+                        else {
+                            return 0.4
+                        }
+                    }
+                    else {
+                        return 0.6
+                    }
+                }
+                else {
+                   return 0.8
+                }
+            }
+            else {
+               return 1.0
+            }
+        }
+        else {
+            return 1.0
+        }
+        
+    }
+    
     func spawn(kindOfSpawn: String) {
         
         if kindOfSpawn == "oneBlock" {
             
             let newBlock = self.getNewBlock()
+            
+            newBlock.node.alpha = setAlpha(count: newBlock.getLifeCount())
             
             self.blocks.append(newBlock)
             self.scene.addChild(newBlock.node)
@@ -70,6 +103,8 @@ class BlockSpawner: Spawner {
             let newBlock = self.getNewLineOfBlocks()
             
             for n in 0..<5 {
+                
+                newBlock[n].node.alpha = setAlpha(count: newBlock[n].getLifeCount())
                 
                 self.blocks.append(newBlock[n])
                 self.scene.addChild(newBlock[n].node)
