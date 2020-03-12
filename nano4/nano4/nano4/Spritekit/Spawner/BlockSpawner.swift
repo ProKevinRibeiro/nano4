@@ -116,6 +116,7 @@ class BlockSpawner: Spawner {
         
         let blockNode = (self.scene.childNode(withName: "block")!.copy() as! SKNode)
         
+        
         for child in blockNode.children {
             guard let childNode = child as? SKLabelNode else { continue }
             
