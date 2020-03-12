@@ -69,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - ContactDelegate
     
     func didBegin(_ contact: SKPhysicsContact) {
-
+        
         guard let nodeA = contact.bodyA.node else { return }
         guard let nodeB = contact.bodyB.node else { return }
         guard nodeA.name == "player" || nodeB.name == "player" else { return }
@@ -96,7 +96,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 b.node == other
             }).first {
                 block.onCollision()
-                
             }
         } else if other.name!.contains("life")  {
             
@@ -113,7 +112,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     func didEnd(_ contact: SKPhysicsContact) {
         
+        for n in 0..<self.blockSpawner.blocks.count {
+            self.blockSpawner.blocks[n].node.removeAllActions()
+        }
         stopPositionUpdating(stop: false)
+        
     }
     
     func stopPositionUpdating(stop: Bool){
@@ -155,10 +158,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func moveToLeft() {
         
-        if self.stopPositionUpdating {
-            return
-        }
-        
         for bar in barSpawner.bars {
             
             if player.node.position.x > bar.node.position.x {
@@ -180,10 +179,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func moveToRight() {
-        
-        if self.stopPositionUpdating {
-            return
-        }
         
         for bar in barSpawner.bars {
             

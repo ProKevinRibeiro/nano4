@@ -18,12 +18,12 @@ class Block: GameObject {
         self.lastContactTimer += TimeInterval(deltaTime)
         
         let dY = deltaTime * 200
-            
-            
+        
         self.node.position.y -= dY
+
     }
-
-
+    
+    
     override func configurePhysics() {
         
         if let body = self.node.physicsBody {
@@ -50,9 +50,30 @@ class Block: GameObject {
         }
     }
     
+    func lifeDiscount() {
+        var newLife = self.getLifeCount()
+        newLife = newLife - 1
+        
+        self.getLifeLabel().text = (String(newLife))
+    }
+    
     func onLifeTaken() {
-        let newLife = self.getLifeCount() - 1
-        self.getLifeLabel().text = "\(newLife)"
+        var action = [SKAction]()
+        for n in 1...self.getLifeCount() {
+            
+            action.append(SKAction.run(self.lifeDiscount))
+            action.append(SKAction.run(self.scene.player.onLifeTaken))
+            action.append(SKAction.wait(forDuration: (0.2/Double(n)) + 0.03))
+            
+        }
+        
+        self.node.run(SKAction.sequence(action)){
+            if self.getLifeCount() <= 0{
+                self.node.removeFromParent()
+                self.scene.stopPositionUpdating(stop: false)
+            }
+        }
+        
     }
     
     func getLifeLabel() -> SKLabelNode {
