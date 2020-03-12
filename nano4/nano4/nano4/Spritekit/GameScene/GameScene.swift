@@ -69,23 +69,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: - ContactDelegate
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if contact.bodyA.node?.name == "player" || contact.bodyB.node?.name == "player" {
-           
-            stopPositionUpdating(stop: true)
-        
-        }
-        else {
-            
-            stopPositionUpdating(stop: false)
-        }
+
         guard let nodeA = contact.bodyA.node else { return }
         guard let nodeB = contact.bodyB.node else { return }
         guard nodeA.name == "player" || nodeB.name == "player" else { return }
         
         if nodeA.name == "player" {
+            stopPositionUpdating(stop: true)
             self.playerCollisionStarted(playerNode: nodeA, other: nodeB)
         } else if nodeB.name == "player" {
+            stopPositionUpdating(stop: true)
             self.playerCollisionStarted(playerNode: nodeB, other: nodeA)
+        }
+        else {
+            stopPositionUpdating(stop: false)
         }
         
     }
