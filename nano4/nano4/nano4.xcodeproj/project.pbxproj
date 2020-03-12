@@ -10,6 +10,7 @@
 		563E695B2412D30200333DDD /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563E695A2412D30100333DDD /* EndGameView.swift */; };
 		56FA5A0A241804C3003ACDE9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA5A09241804C3003ACDE9 /* Model.swift */; };
 		56FA5A1024197439003ACDE9 /* TailNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA5A0F24197439003ACDE9 /* TailNode.swift */; };
+		56FA5A13241AB514003ACDE9 /* SF-Mono-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 56FA5A12241AB514003ACDE9 /* SF-Mono-Semibold.otf */; };
 		644F84E0241020A100412309 /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84DF241020A100412309 /* SetupView.swift */; };
 		644F84E2241020EF00412309 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E1241020EF00412309 /* FirstView.swift */; };
 		644F84E4241020FE00412309 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E3241020FE00412309 /* PauseView.swift */; };
@@ -39,6 +40,7 @@
 		563E695A2412D30100333DDD /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
 		56FA5A09241804C3003ACDE9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		56FA5A0F24197439003ACDE9 /* TailNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TailNode.swift; sourceTree = "<group>"; };
+		56FA5A12241AB514003ACDE9 /* SF-Mono-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Mono-Semibold.otf"; sourceTree = "<group>"; };
 		644F84DF241020A100412309 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		644F84E1241020EF00412309 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		644F84E3241020FE00412309 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 			path = SharedData;
 			sourceTree = "<group>";
 		};
+		56FA5A11241AB4C0003ACDE9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				56FA5A12241AB514003ACDE9 /* SF-Mono-Semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		644F84DE2410200C00412309 /* SwuiftUIViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				644F85102411A55000412309 /* View */,
+				56FA5A11241AB4C0003ACDE9 /* Fonts */,
 				644F850F2411A53A00412309 /* GameScene */,
 				644F850D2411A4F200412309 /* GameObjects */,
 				644F850C2411A4DB00412309 /* Spawner */,
@@ -267,6 +278,7 @@
 			files = (
 				64F909A8240EDEBA00FF621E /* LaunchScreen.storyboard in Resources */,
 				644F84FE2411A48600412309 /* GameScene.sks in Resources */,
+				56FA5A13241AB514003ACDE9 /* SF-Mono-Semibold.otf in Resources */,
 				64F909A5240EDEBA00FF621E /* Preview Assets.xcassets in Resources */,
 				64F909A2240EDEBA00FF621E /* Assets.xcassets in Resources */,
 			);
