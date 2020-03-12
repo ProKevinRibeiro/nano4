@@ -81,7 +81,13 @@ struct EndGameView: View {
                                }
                            }
                                
-                               
+                                      CellphoneView(onClickLeft: {
+                                                Model.shared.scene.moveToLeft()
+                                                             
+                                            }, onClickRight: {
+                                                                                
+                                                Model.shared.scene.moveToRight()
+                                    })
                        }
                        
                    }
@@ -90,13 +96,13 @@ struct EndGameView: View {
     }
 }
 
-//struct EndGameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//        EndGameView()
-//        
-//        EndGameView()
-//         .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-//        }
-//    }
-//}
+struct EndGameView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+        EndGameView()
+        
+        EndGameView()
+         .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+        }
+    }
+}

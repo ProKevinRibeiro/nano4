@@ -18,7 +18,9 @@ struct FirstView: View {
             if(geometry.size.width < geometry.size.height) {
             
                 VStack {
-                    ZStack {
+                        
+                     ZStack {
+                        
                         Rectangle()
                             .foregroundColor(Color.black)
                             .opacity(0.8)
@@ -35,24 +37,40 @@ struct FirstView: View {
                                 .font(Font.system(size: 20, design: Font.Design.monospaced))
                                 .padding(.bottom)
                             }
+                            
+                            
                         }
+                        
+                       
                             
                             
                     }
                     
-                }.edgesIgnoringSafeArea(.all)
+                } .edgesIgnoringSafeArea(.all)
+                
+                //celular
+                CellphoneView(onClickLeft: {
+                    
+                    //colocar o endereço de onde vai quando clica
+                        Model.shared.scene.moveToLeft()
+                                       
+                }, onClickRight: {
+                    //endereço de onde vai quando clica
+                        Model.shared.scene.moveToRight()
+                })
+                
             }
         }
     }
 }
 
-//struct MenuView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            FirstView()
-//            
-//            FirstView()
-//                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-//        }
-//    }
-//}
+struct MenuView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            FirstView()
+            
+            FirstView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+        }
+    }
+}

@@ -16,49 +16,28 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             
             ZStack {
-                Image("fundo").resizable()
-                    .edgesIgnoringSafeArea(.all)
-                
-                
-                VStack {
-                    Spacer()
+                CellphoneView(onClickLeft: {
+                    Model.shared.scene.moveToLeft()
+ 
+                }, onClickRight: {
                     
-                    HStack {
-                        
-                        Button(action: {
-//                            print("botao apertado")
-                            Model.shared.scene.moveToLeft()
-                        }) {
-                            Image("botao_esquerda")
-                        }.buttonStyle(PlainButtonStyle())
-                        
-                        Image("charme")
-                        
-                        
-                        Button(action: {
-//                            print("botao apertado")
-                            Model.shared.scene.moveToRight()
-                        }) {
-                            Image("botao_direita")
-                        }.buttonStyle(PlainButtonStyle())
-                        
-                    }
-                }
+                    Model.shared.scene.moveToRight()
+                })
             }
             
         }
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        
-//        Group {
-//            ContentView()
-//            
-//            ContentView()
-//                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-//            
-//        }
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        Group {
+            ContentView()
+            
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+            
+        }
+    }
+}

@@ -7,3 +7,58 @@
 //
 
 import Foundation
+import SwiftUI
+
+
+struct CellphoneView: View {
+    
+    var onClickLeft: () -> Void
+    var onClickRight: () -> Void
+    
+    var body: some View {
+        
+        
+        ZStack {
+            Image("fundo").resizable()
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                Spacer()
+                
+                HStack {
+                    
+                    Button(action: {
+                        //print("botao apertado")
+                        //Model.shared.scene.moveToLeft()
+                        self.onClickLeft()
+                    }) {
+                        Image("botao_esquerda")
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    Image("charme")
+                    
+                    
+                    Button(action: {
+                        //print("botao apertado")
+                        //Model.shared.scene.moveToRight()
+                        self.onClickRight()
+                    }) {
+                        Image("botao_direita")
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                }
+            }
+        }
+    }
+}
+
+/*struct CellphoneView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+        CellphoneView()
+        
+            CellphoneView(onClickLeft:)
+         .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+        }
+    }
+}*/
