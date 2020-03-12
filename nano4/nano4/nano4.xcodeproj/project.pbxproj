@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		563E695B2412D30200333DDD /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563E695A2412D30100333DDD /* EndGameView.swift */; };
 		56FA5A0A241804C3003ACDE9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA5A09241804C3003ACDE9 /* Model.swift */; };
+		56FA5A1024197439003ACDE9 /* TailNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA5A0F24197439003ACDE9 /* TailNode.swift */; };
 		644F84E0241020A100412309 /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84DF241020A100412309 /* SetupView.swift */; };
 		644F84E2241020EF00412309 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E1241020EF00412309 /* FirstView.swift */; };
 		644F84E4241020FE00412309 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E3241020FE00412309 /* PauseView.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		563E695A2412D30100333DDD /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
 		56FA5A09241804C3003ACDE9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		56FA5A0F24197439003ACDE9 /* TailNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TailNode.swift; sourceTree = "<group>"; };
 		644F84DF241020A100412309 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		644F84E1241020EF00412309 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		644F84E3241020FE00412309 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				644F85062411A49700412309 /* Lifes.swift */,
 				644F84FC2411A48600412309 /* Player.swift */,
 				644F8512241846F700412309 /* Bar.swift */,
+				56FA5A0F24197439003ACDE9 /* TailNode.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				644F85092411A49800412309 /* Spawner.swift in Sources */,
 				644F85012411A48600412309 /* Player.swift in Sources */,
 				644F850A2411A49800412309 /* BlockSpawner.swift in Sources */,
+				56FA5A1024197439003ACDE9 /* TailNode.swift in Sources */,
 				644F850B2411A49800412309 /* Lifes.swift in Sources */,
 				644F84FD2411A48600412309 /* GameScene.swift in Sources */,
 				64F9099C240EDEB700FF621E /* AppDelegate.swift in Sources */,

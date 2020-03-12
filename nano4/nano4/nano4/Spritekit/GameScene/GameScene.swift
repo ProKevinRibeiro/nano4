@@ -48,6 +48,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         selfTime = currentTime
         
+        guard deltaTime < 0.1 else  { return } // Nao atualiza se o deltaTime for grande
+        
+        
+        
         self.player.update(CGFloat(deltaTime))
         
         if !self.stopPositionUpdating {
@@ -74,8 +78,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             stopPositionUpdating(stop: false)
         }
+        guard let nodeA = contact.bodyA.node else { return }
+        guard let nodeB = contact.bodyB.node else { return }
+        guard nodeA.name == "player" || nodeB.name == "player" else { return }
+        
+        if nodeA.name == "player" {
+            self.playerCollisionStarted(playerNode: nodeA, other: nodeB)
+        } else if nodeB.name == "player" {
+            self.playerCollisionStarted(playerNode: nodeB, other: nodeA)
+        }
+        
     }
     
+    
+    
+    func playerCollisionStarted(playerNode: SKNode, other: SKNode) {
+        
+        if other.name!.contains("block")  {
+            if let block = self.blockSpawner.blocks.filter({ (b) -> Bool in
+                b.node == other
+            }).first {
+                block.onCollision()
+            }
+        } else if other.name!.contains("life")  {
+            
+            if let life = self.lifeSpawner.lifes.filter({ (b) -> Bool in
+                b.node == other
+            }).first {
+                let lifes = life.getLifeCount()
+                self.lifeSpawner.removeLife(life)
+                self.player.onLifeAdded(lifes)
+            }
+        }
+        
+    }
     func didEnd(_ contact: SKPhysicsContact) {
         
         stopPositionUpdating(stop: false)
