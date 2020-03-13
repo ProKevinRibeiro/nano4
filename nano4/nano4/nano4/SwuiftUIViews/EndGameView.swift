@@ -11,10 +11,18 @@ import SwiftUI
 struct EndGameView: View {
     
      private var green_tone = Color.init(red: 0.63, green: 0.77, blue: 0.23)
+     @State private var isActive = false
     
     var body: some View {
+        
+        NavigationView {
         GeometryReader { geometry in
                if(geometry.size.width < geometry.size.height) {
+                
+                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true), isActive: self.$isActive) {
+                EmptyView()
+                                            
+                }
                
                    VStack {
                        ZStack {
@@ -67,35 +75,34 @@ struct EndGameView: View {
                                        
                                     }
                                 }
-                                
-                                
                         
                             }
                             
+                            Text("< Toque nas teclas para reiniciar >")
+                                .fontWeight(.black)
+                                .foregroundColor(self.green_tone)
+                                .font(Font.system(size: 16, design: Font.Design.monospaced))
+                                .padding(.bottom)
                             
-                               
+                            
                                Spacer()
                                    
-                               NavigationLink(destination: ContentView()) {
-                                   Text("< Toque para continuar >")
-                                       .fontWeight(.black)
-                                   .foregroundColor(self.green_tone)
-                                   .font(Font.system(size: 20, design: Font.Design.monospaced))
-                                   .padding(.bottom)
-                               }
+                        
+                               
                            }
                                
                                       CellphoneView(onClickLeft: {
-                                                Model.shared.scene.moveToLeft()
+                                                self.isActive = true
                                                              
                                             }, onClickRight: {
-                                                Model.shared.scene.moveToRight()
+                                               self.isActive = true
                                     })
                        }
                        
                    }
                }
            }
+    }
     }
 }
 
