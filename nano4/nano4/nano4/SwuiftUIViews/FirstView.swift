@@ -10,10 +10,14 @@ import SwiftUI
 
 struct FirstView: View {
     
+    @State private var isActive = false
+    //@State var selection: Int? = nil
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     private var green_tone = Color.init(red: 0.63, green: 0.77, blue: 0.23)
     
     var body: some View {
+        NavigationView {
         GeometryReader { geometry in
             if(geometry.size.width < geometry.size.height) {
             
@@ -21,24 +25,33 @@ struct FirstView: View {
                         
                      ZStack {
                         
+                        //chama a content
+                       
+                        
                         Rectangle()
                             .foregroundColor(Color.black)
                             .opacity(0.8)
                         VStack {
-                            Spacer()
+                            //Spacer()
                             Image("snake_menu")
                             
-                            Spacer()
+                            //Spacer()
                                 
-                            NavigationLink(destination: PauseView()) {
-                                Text("< Toque para começar >")
+                            //NavigationLink(destination: PauseView()) {
+                                Text("< Toque nas teclas para começar >")
                                     .fontWeight(.black)
                                 .foregroundColor(self.green_tone)
-                                .font(Font.system(size: 20, design: Font.Design.monospaced))
+                                .font(Font.system(size: 18, design: Font.Design.monospaced))
                                 .padding(.bottom)
-                            }
+                            //}
                             
                             
+                        }
+                        
+                        NavigationLink(destination: ContentView(),
+                                                              isActive: self.$isActive) {
+                                               EmptyView()
+                                                    
                         }
                         
                        
@@ -48,20 +61,21 @@ struct FirstView: View {
                     
                 } .edgesIgnoringSafeArea(.all)
                 
+                
+                
+                
                 //celular
                 CellphoneView(onClickLeft: {
-                    
-                    //colocar o endereço de onde vai quando clica
-                        Model.shared.scene.moveToLeft()
+                   self.isActive = true
                                        
                 }, onClickRight: {
-                    //endereço de onde vai quando clica
-                        Model.shared.scene.moveToRight()
+                    self.isActive = true
                 })
                 
             }
         }
     }
+}
 }
 
 struct MenuView_Previews: PreviewProvider {
