@@ -18,6 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var points: SKLabelNode!
     
+    var onGameOver: () -> Void = {}
     
     var stopPositionUpdating: Bool = false
     
@@ -128,6 +129,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func endGame() {
     //chamar a tela de endgame
+        onGameOver()
     }
     
     
