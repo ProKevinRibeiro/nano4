@@ -76,6 +76,8 @@ class Player: GameObject{
         if self.lifes == 0 {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
+        
+        self.scene.points.text = String(Int(self.scene.points.text!)! + 1)
     }
     
     func moveToLeft() {
