@@ -41,12 +41,13 @@ class BlockSpawner: Spawner {
         
         if spawnCountdown <= 0 {
             
-            
             self.spawn(kindOfSpawn: kindOfSpawn)
             
-            let  possibleSpawnIntervals: [CGFloat] = [self.blockNode.frame.size.height/200,
-                                                      2*self.blockNode.frame.size.height/200,
-                                                      3*self.blockNode.frame.size.height/200]
+            let screenWidth = self.scene.size.height
+            
+            let  possibleSpawnIntervals: [CGFloat] = [(screenWidth/10)/200,
+                                                      2*(screenWidth/10)/200,
+                                                      3*(screenWidth/10)/200]
             
             self.spawnCountdown += TimeInterval(possibleSpawnIntervals.randomElement()!)
         }

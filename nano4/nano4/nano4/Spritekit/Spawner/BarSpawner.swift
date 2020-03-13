@@ -27,12 +27,13 @@ class BarSpawner: Spawner {
         
         if spawnCountdown <= 0 {
             
-            
             self.spawn()
             
-            let  possibleSpawnIntervals: [CGFloat] = [self.barNode.frame.size.height/200,
-                                                      2*self.barNode.frame.size.height/200,
-                                                      3*self.barNode.frame.size.height/200]
+            let screenWidth = self.scene.size.height
+            
+            let  possibleSpawnIntervals: [CGFloat] = [(screenWidth/10)/200,
+                                                      2*(screenWidth/10)/200,
+                                                      3*(screenWidth/10)/200]
             
             self.spawnCountdown += TimeInterval(possibleSpawnIntervals.randomElement()!)
         }
@@ -46,7 +47,28 @@ class BarSpawner: Spawner {
         
         for _ in 0..<Int.random(in: 1...2) {
             let newBar = self.getNewBar()
-        
+            
+            for block in self.scene.blockSpawner.blocks {
+                
+                let screenWidht = self.scene.size.width
+                
+                let barPosY = newBar.node.position.y
+                let blockPosY = block.node.position.y
+                let barBeta = barPosY + newBar.node.frame.size.width/2
+                let blockBeta = blockPosY - block.node.frame.size.height/2
+                
+                if barBeta > blockBeta {
+                    
+                    if (barPosY - newBar.node.frame.size.width/2) < (blockPosY + block.node.frame.size.height/2) {
+                        
+                        if newBar.node.position.x - screenWidht/10 - 10 < block.node.position.x{
+                            
+                            return
+                        }
+                    }
+                }
+            }
+            
             self.bars.append(newBar)
             self.scene.addChild(newBar.node)
         }
@@ -59,9 +81,9 @@ class BarSpawner: Spawner {
         let barNodeHalfHeight = barNode.frame.size.height/2
         
         let spawnPoint: [CGPoint] = [CGPoint(x: (-2*self.scene.size.width/5 + barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight),
-        CGPoint(x: (-self.scene.size.width/5 + barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight),
-        CGPoint(x: (self.scene.size.width/5 - barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight),
-        CGPoint(x: (2*self.scene.size.width/5 - barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight)]
+                                     CGPoint(x: (-self.scene.size.width/5 + barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight),
+                                     CGPoint(x: (self.scene.size.width/5 - barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight),
+                                     CGPoint(x: (2*self.scene.size.width/5 - barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight)]
         
         barNode.position = spawnPoint.randomElement()!
         
