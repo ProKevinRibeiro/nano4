@@ -25,8 +25,7 @@ class Tail: GameObject {
                 let pos = CGPoint(x: myNodePos.x, y: nextNodePos.y)
                 
                 let animation = SKAction.move(to: pos, duration: 0.3)
-                
-                print("Node", self.node.name, "updating", nextTail.node.name, pos)
+            
                
                 nextTail.node.run(animation)
             }

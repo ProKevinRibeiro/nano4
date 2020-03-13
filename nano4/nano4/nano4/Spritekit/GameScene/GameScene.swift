@@ -126,6 +126,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return
     }
     
+    func endGame() {
+    //chamar a tela de endgame
+    }
+    
     
     // MARK: - Touch methods
     
