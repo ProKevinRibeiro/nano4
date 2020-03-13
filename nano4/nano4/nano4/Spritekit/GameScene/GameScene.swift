@@ -16,6 +16,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lifeSpawner: LifeSpawner!
     var barSpawner: BarSpawner!
     
+    var points: SKLabelNode!
+    
+    
     var stopPositionUpdating: Bool = false
     
     var selfTime: TimeInterval = TimeInterval(0)
@@ -29,12 +32,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let playerNode = self.childNode(withName: "player") as! SKSpriteNode
         
         self.player = Player(scene: self, node: playerNode)
-        
         self.blockSpawner = BlockSpawner(self)
-        
         self.lifeSpawner = LifeSpawner(self)
-        
         self.barSpawner = BarSpawner(self)
+    
+        points = (self.childNode(withName: "points") as! SKLabelNode)
         
     }
     
