@@ -61,13 +61,13 @@ class LifeSpawner: Spawner {
             }
         }
         
-        let lifeNodeHalfHeight = lifeNode.frame.size.height/2
+        let screenWidth = self.scene.size.width
         
-        let spawnPoint: [CGPoint] = [CGPoint(x: (-2*self.scene.size.width/5), y: self.scene.size.height/2 + lifeNodeHalfHeight),
-                                     CGPoint(x: (-self.scene.size.width/5), y: self.scene.size.height/2 + lifeNodeHalfHeight),
-                                     CGPoint(x: 0, y: self.scene.size.height/2 + lifeNodeHalfHeight),
-                                     CGPoint(x: (self.scene.size.width/5), y: self.scene.size.height/2 + lifeNodeHalfHeight),
-                                     CGPoint(x: (2*self.scene.size.width/5), y: self.scene.size.height/2 + lifeNodeHalfHeight)]
+        let spawnPoint: [CGPoint] = [CGPoint(x: (-2*self.scene.size.width/5), y: self.scene.size.height/2 + screenWidth/11.5),
+                                     CGPoint(x: (-self.scene.size.width/5), y: self.scene.size.height/2 + screenWidth/11.5),
+                                     CGPoint(x: 0, y: self.scene.size.height/2 + screenWidth/11.5),
+                                     CGPoint(x: (self.scene.size.width/5), y: self.scene.size.height/2 + screenWidth/11.5),
+                                     CGPoint(x: (2*self.scene.size.width/5), y: self.scene.size.height/2 + screenWidth/11.5)]
         
         lifeNode.position = spawnPoint.randomElement()!
         
