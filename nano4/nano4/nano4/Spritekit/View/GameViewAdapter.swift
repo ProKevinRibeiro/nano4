@@ -23,7 +23,7 @@ struct GameViewAdapter: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: GameViewController, context: UIViewControllerRepresentableContext<GameViewAdapter>) {
-        print("updateUIViewController")
+        
     }
     
     typealias UIViewControllerType = GameViewController

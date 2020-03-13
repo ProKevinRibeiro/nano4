@@ -28,8 +28,7 @@ struct CellphoneView: View {
                 HStack {
                     
                     Button(action: {
-                        //print("botao apertado")
-                        //Model.shared.scene.moveToLeft()
+                        
                         self.onClickLeft()
                     }) {
                         Image("botao_esquerda")
@@ -39,8 +38,7 @@ struct CellphoneView: View {
                     
                     
                     Button(action: {
-                        //print("botao apertado")
-                        //Model.shared.scene.moveToRight()
+                        
                         self.onClickRight()
                     }) {
                         Image("botao_direita")

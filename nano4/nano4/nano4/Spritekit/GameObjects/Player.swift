@@ -63,7 +63,6 @@ class Player: GameObject{
                  
                  let animation = SKAction.move(to: pos, duration: 0.3)
                  
-//                 print("Node", self.node.name, "updating", nextTail.node.name, pos)
                 
                  firstTail.node.run(animation)
             }
@@ -75,6 +74,7 @@ class Player: GameObject{
         
         if self.lifes == 0 {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            self.scene.endGame()
         }
         
         self.scene.points.text = String(Int(self.scene.points.text!)! + 1)
