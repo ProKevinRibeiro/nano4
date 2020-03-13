@@ -132,6 +132,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         onGameOver()
         self.points.text = "0"
         self.player.lifes = 10
+        stopPositionUpdating(stop: true)
     }
     
     
