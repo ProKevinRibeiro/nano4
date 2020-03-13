@@ -54,6 +54,9 @@ class Block: GameObject {
         var newLife = self.getLifeCount()
         newLife = newLife - 1
         
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+        feedbackGenerator.impactOccurred()
+        
         self.getLifeLabel().text = (String(newLife))
     }
     
