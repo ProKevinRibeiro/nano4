@@ -64,8 +64,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updatePosition(deltaTime: CGFloat) {
-        self.lifeSpawner.update(deltaTime)
         self.blockSpawner.update(deltaTime)
+        self.lifeSpawner.update(deltaTime)
         self.barSpawner.update(deltaTime)
     }
     
@@ -130,6 +130,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func endGame() {
     //chamar a tela de endgame
         onGameOver()
+        self.points.text = "0"
+        self.player.lifes = 10
     }
     
     

@@ -48,26 +48,20 @@ class LifeSpawner: Spawner {
         
         for block in self.scene.blockSpawner.blocks {
             
-            if newLife.node.position.x < block.node.position.x + block.node.frame.size.width/2 {
-                print("a vida está a esquerda da lateral direta do bloco")
+            if newLife.node.position.x <= block.node.position.x + block.node.frame.size.width/2 {
                 
-                if newLife.node.position.x > block.node.position.x - block.node.frame.size.width/2 {
-                    print("a vida está a direita da lateral esquerda do bloco")
-                    print("a vida esta centralizada em x no bloco")
+                if newLife.node.position.x >= block.node.position.x - block.node.frame.size.width/2 {
                     
-                    if newLife.node.position.y < block.node.position.y + block.node.frame.size.height/2 {
-                        print("a vida está a baixo da lateral cima do bloco")
+                    if newLife.node.position.y <= block.node.position.y + block.node.frame.size.height/2 {
                         
-                        if newLife.node.position.y > block.node.position.y - block.node.frame.size.height/2 {
-                            print("a vida está a cima da lateral baixo do bloco")
-                            print("a vida esta centralizada em y no bloco")
+                        if newLife.node.position.y >= block.node.position.y - block.node.frame.size.height/2 {
                             
                             return
                         }
                     }
                 }
             }
-                
+            
         }
         
         

@@ -58,13 +58,13 @@ class Player: GameObject{
         
         if let firstTail = self.tails.first {
             if abs(self.node.position.x - firstTail.node.position.x) > 40 {
-
-                 let pos = CGPoint(x: self.node.position.x, y: firstTail.node.position.y)
-                 
-                 let animation = SKAction.move(to: pos, duration: 0.3)
-                 
                 
-                 firstTail.node.run(animation)
+                let pos = CGPoint(x: self.node.position.x, y: firstTail.node.position.y)
+                
+                let animation = SKAction.move(to: pos, duration: 0.3)
+                
+                
+                firstTail.node.run(animation)
             }
         }
     }
@@ -92,10 +92,22 @@ class Player: GameObject{
         }
         else {
             
+            for block in self.scene.blockSpawner.blocks {
+                
+                if self.node.position.y + self.node.frame.size.height/2 < block.node.position.y - 20 + block.node.frame.size.height &&
+                    self.node.position.y > block.node.position.y - block.node.frame.size.height/2 {
+                    
+                    if (self.node.position.x + self.node.frame.size.width/2 > block.node.position.x - block.node.frame.size.width/2) {
+                        return
+                    }
+                }
+            }
+            
             let pos = self.scene.frame.size.width/5.0
             
             self.node.position.x =  self.node.position.x - pos
         }
+        
     }
     
     func moveToRight() {
@@ -108,6 +120,17 @@ class Player: GameObject{
             self.node.position.x = -1*(screenWidht/2) + screenWidht/10
         }
         else {
+            
+            for block in self.scene.blockSpawner.blocks {
+                
+                if self.node.position.y + self.node.frame.size.height/2 < block.node.position.y - 20 + block.node.frame.size.height &&
+                    self.node.position.y > block.node.position.y - block.node.frame.size.height/2 {
+                    
+                    if (self.node.position.x + self.node.frame.size.width/2 > block.node.position.x - block.node.frame.size.width/2) {
+                        return
+                    }
+                }
+            }
             
             let pos = self.scene.frame.size.width/5.0
             
@@ -133,7 +156,7 @@ class Player: GameObject{
         
         self.tails.append(newTail)
         self.scene.addChild(tailNode)
-     
+        
         
         tailNode.name = "\(self.tails.count)"
     }
