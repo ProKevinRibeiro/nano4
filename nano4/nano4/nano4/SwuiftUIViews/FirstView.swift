@@ -30,6 +30,8 @@ struct FirstView: View {
                         
                         Rectangle()
                             .foregroundColor(Color.black)
+                            .background(
+                            Image("fundo-1"))
                             .opacity(0.8)
                         VStack {
                             //Spacer()

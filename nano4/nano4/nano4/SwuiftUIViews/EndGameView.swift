@@ -26,18 +26,17 @@ struct EndGameView: View {
                
                    VStack {
                        ZStack {
+                        
+                        
                            Rectangle()
                                .foregroundColor(Color.black)
+                            .background(
+                                Image("fundo-1"))
                                .opacity(0.8)
                                 .edgesIgnoringSafeArea(.all)
                            VStack {
                             
-                            HStack {
-                            Spacer()
-                            //Image("config_icon_clear")
-                               // .frame(alignment:.trailing)
-                                //.padding(.trailing)
-                            }
+                            
                             
                                Spacer()
                             
@@ -57,7 +56,7 @@ struct EndGameView: View {
                                     
                                     Rectangle()
                                         .foregroundColor(self.green_tone)
-                                        .frame(width: geometry.size.height/5, height: geometry.size.height/5, alignment: .center)
+                                        .frame(width: geometry.size.height/4, height: geometry.size.height/4, alignment: .center)
                                         .cornerRadius(12.0)
                                 
                                     VStack  {
