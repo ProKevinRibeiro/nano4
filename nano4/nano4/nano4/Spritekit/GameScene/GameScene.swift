@@ -63,8 +63,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updatePosition(deltaTime: CGFloat) {
-        self.lifeSpawner.update(deltaTime)
         self.blockSpawner.update(deltaTime)
+        self.lifeSpawner.update(deltaTime)
         self.barSpawner.update(deltaTime)
     }
     
