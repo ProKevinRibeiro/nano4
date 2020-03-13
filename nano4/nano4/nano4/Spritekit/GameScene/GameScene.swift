@@ -128,6 +128,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func endGame() {
     //chamar a tela de endgame
+        self.points.text = "0"
+        self.player.lifes = 10
     }
     
     
