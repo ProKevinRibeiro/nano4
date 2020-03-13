@@ -26,9 +26,9 @@ struct EndGameView: View {
                             
                             HStack {
                             Spacer()
-                            Image("config_icon_clear")
-                                .frame(alignment:.trailing)
-                                .padding(.trailing)
+                            //Image("config_icon_clear")
+                               // .frame(alignment:.trailing)
+                                //.padding(.trailing)
                             }
                             
                                Spacer()
@@ -67,8 +67,12 @@ struct EndGameView: View {
                                        
                                     }
                                 }
+                                
+                                
                         
                             }
+                            
+                            
                                
                                Spacer()
                                    
@@ -85,7 +89,6 @@ struct EndGameView: View {
                                                 Model.shared.scene.moveToLeft()
                                                              
                                             }, onClickRight: {
-                                                                                
                                                 Model.shared.scene.moveToRight()
                                     })
                        }
