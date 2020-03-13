@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class Player: GameObject{
     
@@ -32,6 +33,9 @@ class Player: GameObject{
         for _ in 1...amount {
             self.addTail()
         }
+        
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+        feedbackGenerator.impactOccurred()
         
     }
     
@@ -68,6 +72,10 @@ class Player: GameObject{
     
     func onLifeTaken() {
         self.lifes -= 1
+        
+        if self.lifes == 0 {
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        }
     }
     
     func moveToLeft() {
