@@ -9,8 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isActive = false
     var body: some View {
+        
+        
         ZStack {
+            
+            NavigationLink(destination: EndGameView().navigationBarBackButtonHidden(true), isActive: self.$isActive) {
+                EmptyView()
+                
+            }
             
             GameViewAdapter()
                 .edgesIgnoringSafeArea(.all)
@@ -25,6 +33,14 @@ struct ContentView: View {
                 })
             }
             
+            
+            
+        }.onAppear(){
+            Model.shared.scene.onGameOver = {
+                print("jogo acabou")
+                self.isActive = true
+                
+            }
         }
     }
 }
