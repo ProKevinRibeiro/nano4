@@ -48,7 +48,7 @@ struct FirstView: View {
                             
                         }
                         
-                        NavigationLink(destination: ContentView(),
+                        NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true),
                                                               isActive: self.$isActive) {
                                                EmptyView()
                                                     
