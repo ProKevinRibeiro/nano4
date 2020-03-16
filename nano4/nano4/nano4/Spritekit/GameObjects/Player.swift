@@ -14,6 +14,7 @@ class Player: GameObject{
     
     var lifes: Int = 10 // Starting value for lifes
     var tails = [Tail]()
+   
     
     override init(scene: GameScene?, node: SKNode?) {
         super.init(scene: scene, node: node)
@@ -169,4 +170,6 @@ class Player: GameObject{
         return node
         
     }
+    
+  
 }
