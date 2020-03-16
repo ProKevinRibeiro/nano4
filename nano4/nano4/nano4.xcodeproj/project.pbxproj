@@ -12,6 +12,10 @@
 		56FA5A1024197439003ACDE9 /* TailNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA5A0F24197439003ACDE9 /* TailNode.swift */; };
 		56FA5A13241AB514003ACDE9 /* SF-Mono-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 56FA5A12241AB514003ACDE9 /* SF-Mono-Semibold.otf */; };
 		56FA5A15241AC564003ACDE9 /* CellphoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FA5A14241AC563003ACDE9 /* CellphoneView.swift */; };
+		56FAC148241EDB7800DA9B3B /* gameover2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 56FAC147241EDB7700DA9B3B /* gameover2.wav */; };
+		56FAC14A241EDB7F00DA9B3B /* blocoquebrando1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 56FAC149241EDB7F00DA9B3B /* blocoquebrando1.wav */; };
+		56FAC14C241EDB9000DA9B3B /* vida1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 56FAC14B241EDB9000DA9B3B /* vida1.wav */; };
+		56FAC14E241EDB9E00DA9B3B /* subtraçãobloco1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 56FAC14D241EDB9E00DA9B3B /* subtraçãobloco1.wav */; };
 		644F84E0241020A100412309 /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84DF241020A100412309 /* SetupView.swift */; };
 		644F84E2241020EF00412309 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E1241020EF00412309 /* FirstView.swift */; };
 		644F84E4241020FE00412309 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F84E3241020FE00412309 /* PauseView.swift */; };
@@ -43,6 +47,10 @@
 		56FA5A0F24197439003ACDE9 /* TailNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TailNode.swift; sourceTree = "<group>"; };
 		56FA5A12241AB514003ACDE9 /* SF-Mono-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Mono-Semibold.otf"; sourceTree = "<group>"; };
 		56FA5A14241AC563003ACDE9 /* CellphoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellphoneView.swift; sourceTree = "<group>"; };
+		56FAC147241EDB7700DA9B3B /* gameover2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameover2.wav; sourceTree = "<group>"; };
+		56FAC149241EDB7F00DA9B3B /* blocoquebrando1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blocoquebrando1.wav; sourceTree = "<group>"; };
+		56FAC14B241EDB9000DA9B3B /* vida1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = vida1.wav; sourceTree = "<group>"; };
+		56FAC14D241EDB9E00DA9B3B /* subtraçãobloco1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "subtraçãobloco1.wav"; sourceTree = "<group>"; };
 		644F84DF241020A100412309 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		644F84E1241020EF00412309 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		644F84E3241020FE00412309 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
@@ -95,6 +103,17 @@
 				56FA5A12241AB514003ACDE9 /* SF-Mono-Semibold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		56FAC146241EDB5500DA9B3B /* Sons */ = {
+			isa = PBXGroup;
+			children = (
+				56FAC14D241EDB9E00DA9B3B /* subtraçãobloco1.wav */,
+				56FAC14B241EDB9000DA9B3B /* vida1.wav */,
+				56FAC149241EDB7F00DA9B3B /* blocoquebrando1.wav */,
+				56FAC147241EDB7700DA9B3B /* gameover2.wav */,
+			);
+			path = Sons;
 			sourceTree = "<group>";
 		};
 		644F84DE2410200C00412309 /* SwuiftUIViews */ = {
@@ -206,6 +225,7 @@
 				644F84E52410213E00412309 /* Spritekit */,
 				644F84DE2410200C00412309 /* SwuiftUIViews */,
 				64F909A1240EDEBA00FF621E /* Assets.xcassets */,
+				56FAC146241EDB5500DA9B3B /* Sons */,
 				64F909A6240EDEBA00FF621E /* LaunchScreen.storyboard */,
 				64F909A9240EDEBA00FF621E /* Info.plist */,
 				64F909A3240EDEBA00FF621E /* Preview Content */,
@@ -279,11 +299,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FAC14A241EDB7F00DA9B3B /* blocoquebrando1.wav in Resources */,
 				64F909A8240EDEBA00FF621E /* LaunchScreen.storyboard in Resources */,
+				56FAC14C241EDB9000DA9B3B /* vida1.wav in Resources */,
+				56FAC14E241EDB9E00DA9B3B /* subtraçãobloco1.wav in Resources */,
 				644F84FE2411A48600412309 /* GameScene.sks in Resources */,
 				56FA5A13241AB514003ACDE9 /* SF-Mono-Semibold.otf in Resources */,
 				64F909A5240EDEBA00FF621E /* Preview Assets.xcassets in Resources */,
 				64F909A2240EDEBA00FF621E /* Assets.xcassets in Resources */,
+				56FAC148241EDB7800DA9B3B /* gameover2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
