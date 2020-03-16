@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player: Player!
@@ -19,6 +20,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var points: SKLabelNode!
     
     var onGameOver: () -> Void = {}
+    
+    var onChangePoint: (Int) -> Void = {_ in}
     
     var stopPositionUpdating: Bool = false
     

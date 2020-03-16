@@ -9,37 +9,78 @@
 import SwiftUI
 
 struct ContentView: View {
+    //passando a variavel pontos para o swiftUI
+       
+       @State var points: Int = 0
+    
     @State private var isActive = false
     var body: some View {
         
-        
-        ZStack {
-            
-            NavigationLink(destination: EndGameView().navigationBarBackButtonHidden(true), isActive: self.$isActive) {
-                EmptyView()
+        GeometryReader { geometry in
                 
-            }
-            
-            GameViewAdapter()
-                .edgesIgnoringSafeArea(.all)
-            
             ZStack {
-                CellphoneView(onClickLeft: {
-                    Model.shared.scene.moveToLeft()
- 
-                }, onClickRight: {
-                    
-                    Model.shared.scene.moveToRight()
-                })
-            }
-            
-            
-            
-        }.onAppear(){
-            Model.shared.scene.onGameOver = {
-                print("jogo acabou")
-                self.isActive = true
                 
+                NavigationLink(destination: EndGameView().navigationBarBackButtonHidden(true), isActive: self.$isActive) {
+                    EmptyView()
+                    
+                }
+                
+                GameViewAdapter()
+                    .edgesIgnoringSafeArea(.all)
+                
+                
+                
+                ZStack {
+                    VStack {
+                        HStack {
+                            Text("\(self.points)")
+    
+                            .font(Font.system(size: 25, design: Font.Design.monospaced))
+                            .padding(.top)
+
+                            
+                            /*Spacer()
+                            
+                            Image("config_icon")
+                            .padding(.top)
+                                .padding()*/
+                    }
+                    .frame(width: (geometry.size.width), height: (geometry.size.height/9))
+                        .background(Color.black.opacity(0.3))
+                        .edgesIgnoringSafeArea(.top)
+                            
+                        
+                        
+                        Spacer()
+                        
+                    }
+                                               
+                    
+                    
+                    CellphoneView(onClickLeft: {
+                        Model.shared.scene.moveToLeft()
+     
+                    }, onClickRight: {
+                        
+                        Model.shared.scene.moveToRight()
+                    })
+                    
+                   
+                }
+                
+                
+                
+            }.onAppear(){
+                Model.shared.scene.onGameOver = {
+                    print("jogo acabou")
+                    self.isActive = true
+                    
+                }
+                
+                //chamando a variavel da scene e atualizando o valor
+                Model.shared.scene.onChangePoint = { points in
+                    self.points = points
+                }
             }
         }
     }
