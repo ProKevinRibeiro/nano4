@@ -11,11 +11,27 @@ import SpriteKit
 
 class Model{
     
-    static let shared = Model()
+    private static var privateShared : Model?
     
+    var scene: GameScene
+    
+    class func shared() -> Model {
+        guard let unShared = privateShared else {
+            privateShared = Model()
+            return privateShared!
+        }
+        return unShared
+    }
+
+    class func destroy() {
+        privateShared = nil
+    }
+
     private init() {
         scene = GameScene(fileNamed: "GameScene.sks")!
     }
-    
-    var scene:GameScene
+
+    deinit {
+
+    }
 }

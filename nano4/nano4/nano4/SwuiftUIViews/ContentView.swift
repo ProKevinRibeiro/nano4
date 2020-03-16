@@ -25,18 +25,18 @@ struct ContentView: View {
             
             ZStack {
                 CellphoneView(onClickLeft: {
-                    Model.shared.scene.moveToLeft()
+                    Model.shared().scene.moveToLeft()
  
                 }, onClickRight: {
                     
-                    Model.shared.scene.moveToRight()
+                    Model.shared().scene.moveToRight()
                 })
             }
             
             
             
         }.onAppear(){
-            Model.shared.scene.onGameOver = {
+            Model.shared().scene.onGameOver = {
                 print("jogo acabou")
                 self.isActive = true
                 
