@@ -12,8 +12,8 @@ import AVKit
 
 class Lifes: GameObject {
     
-    let url = Bundle.main.url(forResource: "level", withExtension: "mp3")!
-    let player = AVAudioPlayer(contentsOf: url)
+    //let url = Bundle.main.url(forResource: "level", withExtension: "mp3")!
+    //let player = AVAudioPlayer(contentsOf: url)
     
     override func update(_ deltaTime: CGFloat) {
         

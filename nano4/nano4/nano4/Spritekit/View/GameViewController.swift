@@ -21,8 +21,8 @@ class GameViewController: UIViewController {
        // if let scene = SKScene(fileNamed: "GameScene.sks") {
 
         
-        Model.shared.scene.scaleMode = .aspectFit
-        view.presentScene(Model.shared.scene)
+        Model.shared().scene.scaleMode = .aspectFit
+        view.presentScene(Model.shared().scene)
         
         view.ignoresSiblingOrder = true
         view.showsFPS = true
