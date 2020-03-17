@@ -8,11 +8,14 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class Block: GameObject {
     
     var lastContactTimer = TimeInterval(0)
     var minContactTimer = TimeInterval(0.2)
+    var blockBreakingSoundEffect: AVAudioPlayer?
+    var blockBreakSoundEffect: AVAudioPlayer?
     
     override func update(_ deltaTime: CGFloat) {
         self.lastContactTimer += TimeInterval(deltaTime)
@@ -53,6 +56,29 @@ class Block: GameObject {
     func lifeDiscount() {
         var newLife = self.getLifeCount()
         newLife = newLife - 1
+        
+        if newLife == 0 {
+            let path = Bundle.main.path(forResource: "subtraçãobloco1.wav", ofType:nil)!
+            let url = URL(fileURLWithPath: path)
+
+            do {
+                blockBreakSoundEffect = try AVAudioPlayer(contentsOf: url)
+                blockBreakSoundEffect?.play()
+            } catch {
+                // couldn't load file :(
+            }
+        }
+        else{
+            let path = Bundle.main.path(forResource: "blocoquebrando1.wav", ofType:nil)!
+            let url = URL(fileURLWithPath: path)
+
+            do {
+                blockBreakingSoundEffect = try AVAudioPlayer(contentsOf: url)
+                blockBreakingSoundEffect?.play()
+            } catch {
+                // couldn't load file :(
+            }
+        }
         
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         feedbackGenerator.impactOccurred()

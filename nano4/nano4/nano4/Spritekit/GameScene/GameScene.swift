@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -26,6 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var stopPositionUpdating: Bool = false
     
     var selfTime: TimeInterval = TimeInterval(0)
+    
+    var endGameSoundEffect: AVAudioPlayer?
     
     override func didMove(to view: SKView) {
         
@@ -135,6 +138,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func endGame() {
     //chamar a tela de endgame
+        let path = Bundle.main.path(forResource: "gameover2.wav", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            endGameSoundEffect = try AVAudioPlayer(contentsOf: url)
+            endGameSoundEffect?.play()
+        } catch {
+            // couldn't load file :(
+        }
         onGameOver()
         Model.destroy()
     }
