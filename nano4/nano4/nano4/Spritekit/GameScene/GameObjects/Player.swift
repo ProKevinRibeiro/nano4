@@ -12,7 +12,7 @@ import AVFoundation
 
 class Player: GameObject{
     
-    var lifes: Int = 10 // Starting value for lifes
+   var lifes: Int = 10 // Starting value for lifes
     var tails = [Tail]()
    
     
@@ -78,8 +78,9 @@ class Player: GameObject{
             self.scene.endGame()
             print("chamou a ende game")
         }
-        
-        self.scene.points.text = String(Int(self.scene.points.text!)! + 1)
+        let points = Int(self.scene.points.text!)! + 1
+        self.scene.points.text = String(points)
+        self.scene.onChangePoint(points)
     }
     
     func moveToLeft() {

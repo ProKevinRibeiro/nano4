@@ -12,6 +12,9 @@ import SwiftUI
 
 struct GameViewAdapter: UIViewControllerRepresentable {
     
+    
+   
+    
     var vc: GameViewController
     
     init() {
