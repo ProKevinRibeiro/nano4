@@ -29,6 +29,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
+        self.points.text = "0"
+        self.player.lifes = 10
+        
         self.physicsWorld.contactDelegate = self
     }
     
@@ -133,9 +136,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func endGame() {
     //chamar a tela de endgame
         onGameOver()
-        self.points.text = "0"
-        self.player.lifes = 10
-        stopPositionUpdating(stop: true)
+        Model.destroy()
     }
     
     

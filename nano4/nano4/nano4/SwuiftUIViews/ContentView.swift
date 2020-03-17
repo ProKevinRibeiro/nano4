@@ -19,10 +19,24 @@ struct ContentView: View {
         GeometryReader { geometry in
                 
             ZStack {
+                CellphoneView(onClickLeft: {
+                    Model.shared().scene.moveToLeft()
+ 
+                }, onClickRight: {
                 
                 NavigationLink(destination: EndGameView().navigationBarBackButtonHidden(true), isActive: self.$isActive) {
                     EmptyView()
                     
+                    Model.shared().scene.moveToRight()
+                })
+            }
+            
+            
+            
+        }.onAppear(){
+            Model.shared().scene.onGameOver = {
+                print("jogo acabou")
+                self.isActive = true
                 }
                 
                 GameViewAdapter()
