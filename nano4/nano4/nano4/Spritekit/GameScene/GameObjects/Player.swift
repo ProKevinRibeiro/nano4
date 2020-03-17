@@ -12,9 +12,9 @@ import AVFoundation
 
 class Player: GameObject{
     
-   var lifes: Int = 10 // Starting value for lifes
+    var lifes: Int = 10 // Starting value for lifes
     var tails = [Tail]()
-   
+    var lifeSoundEffect: AVAudioPlayer?
     
     override init(scene: GameScene?, node: SKNode?) {
         super.init(scene: scene, node: node)
@@ -37,6 +37,16 @@ class Player: GameObject{
         
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         feedbackGenerator.impactOccurred()
+        
+        let path = Bundle.main.path(forResource: "vida1.wav", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            lifeSoundEffect = try AVAudioPlayer(contentsOf: url)
+            lifeSoundEffect?.play()
+        } catch {
+            // couldn't load file :(
+        }
         
     }
     
@@ -81,6 +91,7 @@ class Player: GameObject{
         let points = Int(self.scene.points.text!)! + 1
         self.scene.points.text = String(points)
         self.scene.onChangePoint(points)
+        
     }
     
     func moveToLeft() {
@@ -172,5 +183,5 @@ class Player: GameObject{
         
     }
     
-  
+    
 }
