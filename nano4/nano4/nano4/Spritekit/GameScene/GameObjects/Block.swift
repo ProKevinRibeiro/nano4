@@ -57,7 +57,10 @@ class Block: GameObject {
         var newLife = self.getLifeCount()
         newLife = newLife - 1
         
-        if newLife == 0 {
+        if newLife <= 0 {
+            if newLife < 0 {
+                return
+            }
             let path = Bundle.main.path(forResource: "subtraçãobloco1.wav", ofType:nil)!
             let url = URL(fileURLWithPath: path)
 
@@ -67,6 +70,7 @@ class Block: GameObject {
             } catch {
                 // couldn't load file :(
             }
+            return
         }
         else{
             let path = Bundle.main.path(forResource: "blocoquebrando1.wav", ofType:nil)!

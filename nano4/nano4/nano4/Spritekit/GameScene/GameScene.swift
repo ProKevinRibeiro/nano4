@@ -55,6 +55,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         
         if isGameOver {
+            for n in 0..<self.blockSpawner.blocks!.count {
+                self.blockSpawner.blocks[n].blockBreakingSoundEffect?.stop()
+                self.blockSpawner.blocks[n].blockBreakSoundEffect?.stop()
+            }
             return
         }
         
@@ -156,6 +160,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         isGameOver = true
         onGameOver()
+
         //Model.shared.load()
         //Model.shared.destroy()
         
