@@ -66,11 +66,11 @@ struct ContentView: View {
                     
                     
                     CellphoneView(onClickLeft: {
-                        Model.shared().scene.moveToLeft()
+                        Model.shared.scene.moveToLeft()
      
                     }, onClickRight: {
                         
-                        Model.shared().scene.moveToRight()
+                        Model.shared.scene.moveToRight()
                     })
                     
                    
@@ -84,7 +84,7 @@ struct ContentView: View {
                 if self.shouldDisplayAd {
                     self.showAd()
                 }
-                Model.shared().scene.onGameOver = {
+                Model.shared.scene.onGameOver = {
                     print("jogo acabou")
                     self.showAd()
                     //self.shouldDisplayAd = false
@@ -95,7 +95,7 @@ struct ContentView: View {
                 }
                 
                 //chamando a variavel da scene e atualizando o valor
-                Model.shared().scene.onChangePoint = { points in
+                Model.shared.scene.onChangePoint = { points in
                     self.points = points
                 }
             }

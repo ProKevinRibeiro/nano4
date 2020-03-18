@@ -30,6 +30,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var endGameSoundEffect: AVAudioPlayer?
     
+    var isGameOver: Bool = false
+    
     override func didMove(to view: SKView) {
         
         self.points.text = "0"
@@ -51,6 +53,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        
+        if isGameOver {
+            return
+        }
+        
         if selfTime == 0 {
             selfTime = currentTime
             return
@@ -147,8 +154,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } catch {
             // couldn't load file :(
         }
+        isGameOver = true
         onGameOver()
-        Model.destroy()
+        //Model.shared.load()
+        //Model.shared.destroy()
+        
     }
     
     

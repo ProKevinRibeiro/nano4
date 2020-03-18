@@ -13,23 +13,39 @@ import SwiftUI
 
 class GameViewController: UIViewController {
     
+    let gameView = SKView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let view = SKView()
 
        // if let scene = SKScene(fileNamed: "GameScene.sks") {
-
         
-        Model.shared().scene.scaleMode = .aspectFit
-        view.presentScene(Model.shared().scene)
+//        Model.shared.scene.scaleMode = .aspectFit
+        //view.presentScene(Model.shared.scene)
+        Model.shared.gameVc = self
         
-        view.ignoresSiblingOrder = true
-        view.showsFPS = true
-        view.showsNodeCount = true
-            
-        self.view = view
+        //load()
+        
+//        gameView.ignoresSiblingOrder = true
+//        gameView.showsFPS = true
+//        gameView.showsNodeCount = true
+//
+//        self.view = gameView
        // }
+        
+        Model.shared.load()
+        
+        gameView.ignoresSiblingOrder = true
+            
+        self.view = gameView
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("ViewDidAppear")
+    }
+    
+    func load() {
+        gameView.presentScene(Model.shared.scene)
     }
 
     override var shouldAutorotate: Bool {
