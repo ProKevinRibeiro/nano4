@@ -20,51 +20,39 @@ struct FirstView: View {
         NavigationView {
         GeometryReader { geometry in
             if(geometry.size.width < geometry.size.height) {
+                
+                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true),
+                                                      isActive: self.$isActive) {
+                    EmptyView()
+                                            
+                }
             
-                VStack {
+                VStack{
                         
                      ZStack {
-                        
                         //chama a content
-                       
-                        
-                        Rectangle()
-                            .foregroundColor(Color.black)
-                            .background(
-                            Image("fundo-1"))
-                            .opacity(0.8)
+                       Image("background01")
+                           .edgesIgnoringSafeArea(.all)
+                            
+                       // HStack (alignment: .center) {
                         VStack {
-                            //Spacer()
-                            Image("snake_menu")
-                            
-                            //Spacer()
-                                
-                            //NavigationLink(destination: PauseView()) {
-                                Text("< Toque nas teclas para começar >")
-                                    .fontWeight(.black)
-                                .foregroundColor(self.green_tone)
-                                .font(Font.system(size: 18, design: Font.Design.monospaced))
-                                .padding(.bottom)
-                            //}
-                            
-                            
-                        }
-                        
-                        NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true),
-                                                              isActive: self.$isActive) {
-                                               EmptyView()
-                                                    
-                        }
-                        
-                       
-                            
-                            
-                    }
                     
-                } .edgesIgnoringSafeArea(.all)
-                
-                
-                
+                        Image("snake_menu")
+                        
+                        Text("< Toque nas teclas para iniciar >")
+                            .fontWeight(.black)
+                            .foregroundColor(self.green_tone)
+                            .font(Font.system(size: 16, design: Font.Design.monospaced))
+                            .padding(.bottom)
+                            
+                         Spacer()
+                        }
+                          
+                       
+                       }
+                }
+                    
+                //}
                 
                 //celular
                 CellphoneView(onClickLeft: {
@@ -86,7 +74,7 @@ struct MenuView_Previews: PreviewProvider {
             FirstView()
             
             FirstView()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
     }
 }

@@ -37,10 +37,10 @@ struct EndGameView: View {
                         
                         
                            Rectangle()
-                               .foregroundColor(Color.black)
+                            .foregroundColor(Color.black.opacity(0.2))
                             .background(
-                                Image("fundo-1"))
-                               .opacity(0.8)
+                                Image("background01"))
+                            .opacity(1.0)
                                 .edgesIgnoringSafeArea(.all)
                            VStack {
                             
@@ -53,10 +53,16 @@ struct EndGameView: View {
                                 .foregroundColor(self.green_tone)
                                 .font(Font.system(size: 30, design: Font.Design.monospaced))
                                 .padding(.bottom)
+                            
+                                Text("pontos")
+                                .fontWeight(.black)
+                                .foregroundColor(self.green_tone)
+                                .font(Font.system(size: 30, design: Font.Design.monospaced))
+                                .padding(.bottom)
                                 
                                 //Spacer()
                             
-                            HStack {
+                           /* HStack {
                                 
                                 
                                 //reviver button
@@ -83,7 +89,7 @@ struct EndGameView: View {
                                     }
                                 }
                         
-                            }
+                            }*/
                             
                             Text("< Toque nas teclas para reiniciar >")
                                 .fontWeight(.black)

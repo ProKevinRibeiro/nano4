@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1FB75B9FB82B8324BF8F0A79 /* Pods_nano4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071F62DEDB660E6CCC4EF679 /* Pods_nano4.framework */; };
+		5620E1CE2422D98400D04D8B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620E1CD2422D98300D04D8B /* GameData.swift */; };
 		563E695B2412D30200333DDD /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563E695A2412D30100333DDD /* EndGameView.swift */; };
 		564C2837242169A400020E64 /* AdDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C2836242169A400020E64 /* AdDelegateWrapper.swift */; };
 		564C28392421836700020E64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 564C28382421836700020E64 /* GoogleService-Info.plist */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		071F62DEDB660E6CCC4EF679 /* Pods_nano4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nano4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C4CC39FA039747263E7F774 /* Pods-nano4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nano4.debug.xcconfig"; path = "Target Support Files/Pods-nano4/Pods-nano4.debug.xcconfig"; sourceTree = "<group>"; };
+		5620E1CD2422D98300D04D8B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		563E695A2412D30100333DDD /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
 		564C2836242169A400020E64 /* AdDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDelegateWrapper.swift; sourceTree = "<group>"; };
 		564C28382421836700020E64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				64F9099F240EDEB700FF621E /* ContentView.swift */,
+				5620E1CD2422D98300D04D8B /* GameData.swift */,
 				56FA5A14241AC563003ACDE9 /* CellphoneView.swift */,
 				563E695A2412D30100333DDD /* EndGameView.swift */,
 				644F84DF241020A100412309 /* SetupView.swift */,
@@ -410,6 +413,7 @@
 				56FA5A1024197439003ACDE9 /* TailNode.swift in Sources */,
 				644F850B2411A49800412309 /* Lifes.swift in Sources */,
 				644F84FD2411A48600412309 /* GameScene.swift in Sources */,
+				5620E1CE2422D98400D04D8B /* GameData.swift in Sources */,
 				64F9099C240EDEB700FF621E /* AppDelegate.swift in Sources */,
 				564C2837242169A400020E64 /* AdDelegateWrapper.swift in Sources */,
 				644F84E0241020A100412309 /* SetupView.swift in Sources */,
