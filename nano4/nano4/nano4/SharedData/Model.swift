@@ -11,24 +11,23 @@ import SpriteKit
 
 class Model{
     
-    private static var privateShared : Model?
+    static var shared = Model()
     
-    var scene: GameScene
-    
-    class func shared() -> Model {
-        guard let unShared = privateShared else {
-            privateShared = Model()
-            return privateShared!
-        }
-        return unShared
-    }
-
-    class func destroy() {
-        privateShared = nil
-    }
+    var scene: GameScene!
+    var gameVc: GameViewController!
 
     private init() {
+        //load()
+    }
+    
+    func load() {
         scene = GameScene(fileNamed: "GameScene.sks")!
+        
+        scene.scaleMode = .aspectFit
+        
+        if gameVc != nil {
+            gameVc.load()
+        }
     }
 
     deinit {
