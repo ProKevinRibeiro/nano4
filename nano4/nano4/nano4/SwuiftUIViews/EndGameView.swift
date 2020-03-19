@@ -54,11 +54,11 @@ struct EndGameView: View {
                                 .font(Font.system(size: 30, design: Font.Design.monospaced))
                                 .padding(.bottom)
                             
-                                Text("pontos")
+                                /*Text("pontos")
                                 .fontWeight(.black)
                                 .foregroundColor(self.green_tone)
                                 .font(Font.system(size: 30, design: Font.Design.monospaced))
-                                .padding(.bottom)
+                                .padding(.bottom)*/
                                 
                                 //Spacer()
                             

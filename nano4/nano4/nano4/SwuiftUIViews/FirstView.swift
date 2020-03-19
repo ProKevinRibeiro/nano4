@@ -36,6 +36,8 @@ struct FirstView: View {
                             
                        // HStack (alignment: .center) {
                         VStack {
+                            
+                        Spacer()
                     
                         Image("snake_menu")
                         
