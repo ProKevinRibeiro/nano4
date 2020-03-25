@@ -70,7 +70,7 @@ struct ContentView: View {
      
                     }, onClickRight: {
                         
-                        Model.shared.scene.moveToRight()
+                        Model.shared.scene!.moveToRight()
                     })
                     
                    
@@ -81,9 +81,9 @@ struct ContentView: View {
             }.onAppear(){
                 self.loadAd()
                 print("Show display ad: \(self.shouldDisplayAd)")
-                if self.shouldDisplayAd {
-                    self.showAd()
-                }
+//                if self.shouldDisplayAd {
+//                    self.showAd()
+//                }
                 Model.shared.scene.onGameOver = {
                     print("jogo acabou")
                     self.showAd()
