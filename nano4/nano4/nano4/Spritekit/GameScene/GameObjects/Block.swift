@@ -48,7 +48,6 @@ class Block: GameObject {
     func onCollision() {
         if self.lastContactTimer > self.minContactTimer {
             self.onLifeTaken()
-            self.scene.player.onLifeTaken()
             self.lastContactTimer = TimeInterval(0)
         }
     }
@@ -56,6 +55,8 @@ class Block: GameObject {
     func lifeDiscount() {
         var newLife = self.getLifeCount()
         newLife = newLife - 1
+        
+        self.getLifeLabel().text = (String(newLife))
         
         if newLife <= 0 {
             if newLife < 0 {
@@ -70,6 +71,9 @@ class Block: GameObject {
             } catch {
                 // couldn't load file :(
             }
+            self.node.removeFromParent()
+            self.scene.stopPositionUpdating(stop: false)
+            
             return
         }
         else{
@@ -87,29 +91,27 @@ class Block: GameObject {
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
         feedbackGenerator.impactOccurred()
         
-        self.getLifeLabel().text = (String(newLife))
     }
     
     func onLifeTaken() {
+        
+        
+        
         var action = [SKAction]()
         for n in 1...self.getLifeCount() {
             
-            action.append(SKAction.run(self.lifeDiscount))
             action.append(SKAction.run(self.scene.player.onLifeTaken))
+            action.append(SKAction.run(self.lifeDiscount))
             action.append(SKAction.wait(forDuration: (0.2/Double(n)) + 0.03))
             
         }
         
-        self.node.run(SKAction.sequence(action)){
-            if self.getLifeCount() <= 0{
-                self.node.removeFromParent()
-                self.scene.stopPositionUpdating(stop: false)
-            }
-        }
+        self.node.run(SKAction.sequence(action))
+        
         
     }
     
     func getLifeLabel() -> SKLabelNode {
-        self.node.childNode(withName: "blockLabel") as! SKLabelNode
+        return self.node.childNode(withName: "blockLabel") as! SKLabelNode
     }
 }

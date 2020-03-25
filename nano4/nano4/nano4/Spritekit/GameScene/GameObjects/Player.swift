@@ -31,6 +31,8 @@ class Player: GameObject{
     func onLifeAdded(_ amount: Int) {
         self.lifes += amount
         
+        self.getLifesNode().text = "\(self.lifes)"
+        
         for _ in 1...amount {
             self.addTail()
         }
@@ -63,7 +65,7 @@ class Player: GameObject{
     
     
     override func update(_ deltaTime: CGFloat) {
-        self.getLifesNode().text = "\(self.lifes)"
+        //self.getLifesNode().text = "\(self.lifes)"
         
         self.tails.forEach { $0.update(deltaTime) }
         
@@ -83,15 +85,18 @@ class Player: GameObject{
     func onLifeTaken() {
         self.lifes -= 1
         
-        if self.lifes == 0 {
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            self.scene.endGame()
-            print("chamou a ende game")
-        }
         let points = Int(self.scene.points.text!)! + 1
         self.scene.points.text = String(points)
         self.scene.onChangePoint(points)
         
+        self.getLifesNode().text = "\(self.lifes)"
+        
+        if self.lifes == 0 {
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            self.scene.player.node.removeFromParent()
+            self.scene.endGame()
+            print("chamou a ende game")
+        }
     }
     
     func moveToLeft() {
