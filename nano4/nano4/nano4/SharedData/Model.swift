@@ -21,6 +21,10 @@ class Model{
     }
     
     func load() {
+        if scene != nil {
+            scene = nil
+        }
+        
         scene = GameScene(fileNamed: "GameScene.sks")!
         
         scene.scaleMode = .aspectFit
