@@ -149,6 +149,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func endGame() {
     //chamar a tela de endgame
+        stopPositionUpdating(stop: true)
+        
+        
         let path = Bundle.main.path(forResource: "gameover2.wav", ofType:nil)!
         let url = URL(fileURLWithPath: path)
 

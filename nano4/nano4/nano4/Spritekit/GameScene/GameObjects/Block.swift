@@ -23,7 +23,7 @@ class Block: GameObject {
         let dY = deltaTime * 200
         
         self.node.position.y -= dY
-
+        
     }
     
     
@@ -53,49 +53,52 @@ class Block: GameObject {
     }
     
     func lifeDiscount() {
-        var newLife = self.getLifeCount()
-        newLife = newLife - 1
         
-        self.getLifeLabel().text = (String(newLife))
-        
-        if newLife <= 0 {
-            if newLife < 0 {
+        if !self.scene.isGameOver {
+            
+            var newLife = self.getLifeCount()
+            newLife = newLife - 1
+            
+            self.getLifeLabel().text = (String(newLife))
+            
+            if newLife <= 0 {
+                if newLife < 0 {
+                    return
+                }
+                let path = Bundle.main.path(forResource: "subtraçãobloco1.wav", ofType:nil)!
+                let url = URL(fileURLWithPath: path)
+                
+                do {
+                    blockBreakSoundEffect = try AVAudioPlayer(contentsOf: url)
+                    blockBreakSoundEffect?.play()
+                } catch {
+                    // couldn't load file :(
+                }
+                self.node.removeFromParent()
+                self.scene.stopPositionUpdating(stop: false)
+                
                 return
             }
-            let path = Bundle.main.path(forResource: "subtraçãobloco1.wav", ofType:nil)!
-            let url = URL(fileURLWithPath: path)
-
-            do {
-                blockBreakSoundEffect = try AVAudioPlayer(contentsOf: url)
-                blockBreakSoundEffect?.play()
-            } catch {
-                // couldn't load file :(
+            else{
+                let path = Bundle.main.path(forResource: "blocoquebrando1.wav", ofType:nil)!
+                let url = URL(fileURLWithPath: path)
+                
+                do {
+                    blockBreakingSoundEffect = try AVAudioPlayer(contentsOf: url)
+                    //blockBreakingSoundEffect?.play()
+                } catch {
+                    // couldn't load file :(
+                }
             }
-            self.node.removeFromParent()
-            self.scene.stopPositionUpdating(stop: false)
             
-            return
+            let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+            feedbackGenerator.impactOccurred()
+            
         }
-        else{
-            let path = Bundle.main.path(forResource: "blocoquebrando1.wav", ofType:nil)!
-            let url = URL(fileURLWithPath: path)
-
-            do {
-                blockBreakingSoundEffect = try AVAudioPlayer(contentsOf: url)
-                blockBreakingSoundEffect?.play()
-            } catch {
-                // couldn't load file :(
-            }
-        }
-        
-        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-        feedbackGenerator.impactOccurred()
         
     }
     
     func onLifeTaken() {
-        
-        
         
         var action = [SKAction]()
         for n in 1...self.getLifeCount() {
