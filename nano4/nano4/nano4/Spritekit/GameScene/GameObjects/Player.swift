@@ -23,7 +23,7 @@ class Player: GameObject{
     }
     
     func configureTail() {
-        for _ in 1...self.lifes {
+        for _ in 1..<self.lifes {
             self.addTail()
         }
     }
@@ -42,7 +42,7 @@ class Player: GameObject{
         
         let path = Bundle.main.path(forResource: "vida1.wav", ofType:nil)!
         let url = URL(fileURLWithPath: path)
-
+        
         do {
             lifeSoundEffect = try AVAudioPlayer(contentsOf: url)
             lifeSoundEffect?.play()
@@ -83,29 +83,36 @@ class Player: GameObject{
     }
     
     func onLifeTaken() {
-        self.lifes -= 1
-        
-        let points = Int(self.scene.points.text!)! + 1
-        self.scene.points.text = String(points)
-        self.scene.onChangePoint(points)
-        
-        self.getLifesNode().text = "\(self.lifes)"
-        
-        if self.lifes == 0 {
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            self.scene.player.node.removeFromParent()
-            self.scene.endGame()
-            print("chamou a ende game")
-        }
-        
-        if let lastTail = self.tails.last {
-            lastTail.node.removeFromParent()
-            self.tails.removeLast(1)
+        if !self.scene.isGameOver {
+            
+                self.lifes -= 1
+                
+                let points = Int(self.scene.points.text!)! + 1
+                self.scene.points.text = String(points)
+                self.scene.onChangePoint(points)
+                
+                self.getLifesNode().text = "\(self.lifes)"
+                
+                if self.lifes == 0 {
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    self.scene.player.node.removeFromParent()
+                    self.scene.endGame()
+                    print("chamou a ende game")
+                }
+            if self.tails.count <= 10 {
+                if let lastTail = self.tails.last {
+                    lastTail.node.removeFromParent()
+                    self.tails.removeLast(1)
+                }
+            }
         }
         
     }
     
     func moveToLeft() {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
+        feedbackGenerator.impactOccurred()
+        
         let screenWidht = self.scene.frame.size.width
         
         let comparableSize = (-1*(screenWidht/2) + screenWidht/10)
@@ -135,6 +142,9 @@ class Player: GameObject{
     }
     
     func moveToRight() {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
+        feedbackGenerator.impactOccurred()
+        
         let screenWidht = self.scene.frame.size.width
         
         let comparableSize = ((screenWidht/2) - screenWidht/10)
@@ -167,22 +177,25 @@ class Player: GameObject{
     }
     
     func addTail() {
-        let tailNode = self.getTailNode()
-        let newTail = Tail(scene: self.scene, node: tailNode)
-        
-        let tailYOffset = tailNode.size.height * CGFloat(self.tails.count) + (self.node as! SKSpriteNode).size.height
-        
-        tailNode.position = CGPoint(x: self.node.position.x, y: self.node.position.y - tailYOffset)
-        
-        if let lastTail = self.tails.last {
-            lastTail.nextTail = newTail
+        if self.tails.count <= 10 {
+            
+            let tailNode = self.getTailNode()
+            let newTail = Tail(scene: self.scene, node: tailNode)
+            
+            let tailYOffset = tailNode.size.height * CGFloat(self.tails.count) + (self.node as! SKSpriteNode).size.height
+            
+            tailNode.position = CGPoint(x: self.node.position.x, y: self.node.position.y - tailYOffset)
+            
+            if let lastTail = self.tails.last {
+                lastTail.nextTail = newTail
+            }
+            
+            self.tails.append(newTail)
+            self.scene.addChild(tailNode)
+            
+            
+            tailNode.name = "\(self.tails.count)"
         }
-        
-        self.tails.append(newTail)
-        self.scene.addChild(tailNode)
-        
-        
-        tailNode.name = "\(self.tails.count)"
     }
     
     func getTailNode() -> SKSpriteNode {
