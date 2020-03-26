@@ -97,6 +97,12 @@ class Player: GameObject{
             self.scene.endGame()
             print("chamou a ende game")
         }
+        
+        if let lastTail = self.tails.last {
+            lastTail.node.removeFromParent()
+            self.tails.removeLast(1)
+        }
+        
     }
     
     func moveToLeft() {

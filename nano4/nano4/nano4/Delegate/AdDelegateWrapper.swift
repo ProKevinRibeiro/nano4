@@ -25,12 +25,11 @@ class AdDelegateWrapper: NSObject, GADRewardedAdDelegate, GADRewardBasedVideoAdD
         print("failed")
     }
     
-    
-    
     func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
         print("Show display ad: \(self.contentView.shouldDisplayAd)")
         self.contentView.shouldDisplayAd = false
         self.contentView.shouldDisplayEndGame = true
+        print("ENDGAME = TRUE, AD = FALSE")
         
         self.contentView.isDirty.toggle()
     }

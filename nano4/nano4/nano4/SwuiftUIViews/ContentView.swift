@@ -22,17 +22,19 @@ struct ContentView: View {
     
     @State var shouldDisplayEndGame = false
     @State var shouldDisplayAd = false
+    
     var body: some View {
         
         GeometryReader { geometry in
                 
             ZStack {
-                
+
                 NavigationLink(destination: EndGameView().navigationBarBackButtonHidden(true), isActive: self.$shouldDisplayEndGame) {
                     EmptyView()
-                    
+
+
                 }
-                
+
                 GameViewAdapter()
                     .edgesIgnoringSafeArea(.all)
                 
@@ -66,7 +68,7 @@ struct ContentView: View {
                     
                     
                     CellphoneView(onClickLeft: {
-                        Model.shared.scene.moveToLeft()
+                        Model.shared.scene!.moveToLeft()
      
                     }, onClickRight: {
                         
