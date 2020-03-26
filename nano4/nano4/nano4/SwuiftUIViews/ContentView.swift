@@ -20,8 +20,9 @@ struct ContentView: View {
     
      @State var isDirty = false
     
-    @State var shouldDisplayEndGame = false
+    @State var shouldDisplayEndGame: Bool = false
     @State var shouldDisplayAd = false
+
     
     var body: some View {
         
@@ -29,12 +30,15 @@ struct ContentView: View {
                 
             ZStack {
 
-                NavigationLink(destination: EndGameView().navigationBarBackButtonHidden(true), isActive: self.$shouldDisplayEndGame) {
+                NavigationLink(
+                    destination: EndGameView(isActive: self.$shouldDisplayEndGame).navigationBarBackButtonHidden(true),
+                    isActive: self.$shouldDisplayEndGame)
+                {
                     EmptyView()
 
-
                 }
-
+                
+                
                 GameViewAdapter()
                     .edgesIgnoringSafeArea(.all)
                 
@@ -102,6 +106,7 @@ struct ContentView: View {
                 }
             }
         }
+        
     }
     
     func showAd() {

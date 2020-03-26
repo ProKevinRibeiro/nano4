@@ -11,10 +11,8 @@ import GoogleMobileAds
 
 struct EndGameView: View {
     
-     private var green_tone = Color.init(red: 0.63, green: 0.77, blue: 0.23)
-     @State private var isActive = false
-
-    
+     var green_tone = Color.init(red: 0.63, green: 0.77, blue: 0.23)
+    @Binding  var isActive: Bool
     
     var body: some View {
         
@@ -27,10 +25,6 @@ struct EndGameView: View {
         GeometryReader { geometry in
                if(geometry.size.width < geometry.size.height) {
                 
-                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true), isActive: self.$isActive) {
-                EmptyView()
-                                            
-                }
                
                    VStack {
                        ZStack {
@@ -105,10 +99,12 @@ struct EndGameView: View {
                            }
                                
                                       CellphoneView(onClickLeft: {
-                                                self.isActive = true
+                                        Model.shared.load()
+                                                self.isActive = false
                                                              
                                             }, onClickRight: {
-                                               self.isActive = true
+                                                Model.shared.load()
+                                               self.isActive = false
                                     })
                        }
                        
@@ -125,16 +121,16 @@ struct EndGameView: View {
     
 }
 
-struct EndGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-        EndGameView()
-        
-        EndGameView()
-         .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-        }
-    }
-}
+//struct EndGameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//        EndGameView(isActive: true)
+//
+//            EndGameView(isActive: true)
+//         .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+//        }
+//    }
+//}
 
 /*extension ViewController: GADInterstitialDelegate {
     
