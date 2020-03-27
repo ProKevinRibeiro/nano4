@@ -85,20 +85,20 @@ class Player: GameObject{
     func onLifeTaken() {
         if !self.scene.isGameOver {
             
-                self.lifes -= 1
-                
-                let points = Int(self.scene.points.text!)! + 1
-                self.scene.points.text = String(points)
-                self.scene.onChangePoint(points)
-                
-                self.getLifesNode().text = "\(self.lifes)"
-                
-                if self.lifes == 0 {
-                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                    self.scene.player.node.removeFromParent()
-                    self.scene.endGame()
-                    print("chamou a ende game")
-                }
+            self.lifes -= 1
+            
+            let points = Int(self.scene.points.text!)! + 1
+            self.scene.points.text = String(points)
+            self.scene.onChangePoint(points)
+            
+            self.getLifesNode().text = "\(self.lifes)"
+            
+            if self.lifes == 0 {
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                self.scene.player.node.removeFromParent()
+                self.scene.endGame()
+                print("chamou a ende game")
+            }
             if self.tails.count <= 10 {
                 if let lastTail = self.tails.last {
                     lastTail.node.removeFromParent()
@@ -119,17 +119,37 @@ class Player: GameObject{
         
         if (self.node.position.x + 0.1 > comparableSize) && (self.node.position.x - 0.1 < comparableSize) {
             
+            for block in self.scene.blockSpawner.blocks {
+                
+                if (self.node.position.y + self.node.frame.size.height/2) >
+                    (block.node.position.y - block.node.frame.height/2)
+                    && (self.node.position.y - self.node.frame.size.height/2) <
+                    (block.node.position.y + block.node.frame.height/2)   {
+                    
+                    if (self.node.position.x + block.node.position.x <= 10
+                        && self.node.position.x + block.node.position.x >= -10) {
+                        return
+                    }
+                }
+            }
+            
             self.node.position.x = screenWidht/2 - screenWidht/10
         }
         else {
             
             for block in self.scene.blockSpawner.blocks {
                 
-                if self.node.position.y + self.node.frame.size.height/2 < block.node.position.y - 20 + block.node.frame.size.height &&
-                    self.node.position.y > block.node.position.y - block.node.frame.size.height/2 {
+                if (self.node.position.y + self.node.frame.size.height/2) >
+                    (block.node.position.y - block.node.frame.height/2)
+                    && (self.node.position.y - self.node.frame.size.height/2) <
+                    (block.node.position.y + block.node.frame.height/2)   {
                     
-                    if (self.node.position.x + self.node.frame.size.width/2 > block.node.position.x - block.node.frame.size.width/2) {
-                        return
+                    if (self.node.position.x - block.node.position.x <= self.scene.frame.size.width/5 + 10
+                        && self.node.position.x - block.node.position.x >= self.scene.frame.size.width/5 - 10) {
+                        
+                        if self.node.position.x < 0 {
+                            return
+                        }
                     }
                 }
             }
@@ -151,16 +171,36 @@ class Player: GameObject{
         
         if (self.node.position.x + 0.1 > comparableSize) && (self.node.position.x - 0.1 < comparableSize) {
             
+            for block in self.scene.blockSpawner.blocks {
+                
+                if (self.node.position.y + self.node.frame.size.height/2) >
+                    (block.node.position.y - block.node.frame.height/2)
+                    && (self.node.position.y - self.node.frame.size.height/2) <
+                    (block.node.position.y + block.node.frame.height/2)   {
+                    
+                    if (self.node.position.x + block.node.position.x <= 10
+                        && self.node.position.x + block.node.position.x >= -10) {
+                        
+                        if self.node.position.x > 0 {
+                            return
+                        }
+                    }
+                }
+            }
+            
             self.node.position.x = -1*(screenWidht/2) + screenWidht/10
         }
         else {
             
             for block in self.scene.blockSpawner.blocks {
                 
-                if self.node.position.y + self.node.frame.size.height/2 < block.node.position.y - 20 + block.node.frame.size.height &&
-                    self.node.position.y > block.node.position.y - block.node.frame.size.height/2 {
+                if (self.node.position.y + self.node.frame.size.height/2) >
+                    (block.node.position.y - block.node.frame.height/2)
+                    && (self.node.position.y - self.node.frame.size.height/2) <
+                    (block.node.position.y + block.node.frame.height/2)   {
                     
-                    if (self.node.position.x + self.node.frame.size.width/2 > block.node.position.x - block.node.frame.size.width/2) {
+                    if (self.node.position.x - block.node.position.x <= -(self.scene.frame.size.width/5 - 10)
+                        && (self.node.position.x - block.node.position.x) >= -((self.scene.frame.size.width/CGFloat(5)) + CGFloat(10))) {
                         return
                     }
                 }
