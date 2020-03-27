@@ -156,7 +156,7 @@ class BlockSpawner: Spawner {
                     childNode.text = String(Int.random(in: 1...50))
                 }
                 if node == blockNode[0] {
-                    childNode.text = String(Int.random(in: 1...4))
+                    childNode.text = String(Int.random(in: 1...5))
                 }
             }
             

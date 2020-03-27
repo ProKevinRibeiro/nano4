@@ -31,9 +31,11 @@ class LifeSpawner: Spawner {
             
             let screenWidth = self.scene.size.height
             
-            let  possibleSpawnIntervals: [CGFloat] = [(screenWidth/10)/200,
-                                                      2*(screenWidth/10)/200,
-                                                      3*(screenWidth/10)/200]
+            let  possibleSpawnIntervals: [CGFloat] = [(2*screenWidth/10)/200,
+                                                      3*(screenWidth/10)/200,
+                                                      4*(screenWidth/10)/200,
+                                                      5*(screenWidth/10)/200,
+                                                      6*(screenWidth/10)/200]
             
             self.spawnCountdown += TimeInterval(possibleSpawnIntervals.randomElement()!)
         }

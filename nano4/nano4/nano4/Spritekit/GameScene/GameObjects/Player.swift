@@ -128,7 +128,10 @@ class Player: GameObject{
                     
                     if (self.node.position.x + block.node.position.x <= 10
                         && self.node.position.x + block.node.position.x >= -10) {
-                        return
+                        
+                        if self.node.position.x < 0 {
+                            return
+                        }
                     }
                 }
             }
@@ -147,9 +150,9 @@ class Player: GameObject{
                     if (self.node.position.x - block.node.position.x <= self.scene.frame.size.width/5 + 10
                         && self.node.position.x - block.node.position.x >= self.scene.frame.size.width/5 - 10) {
                         
-                        if self.node.position.x < 0 {
+                        
                             return
-                        }
+                        
                     }
                 }
             }
