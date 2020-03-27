@@ -23,8 +23,9 @@ struct CellphoneView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+                VStack {
                 Spacer()
-                
+                }
                 HStack {
                     
                     Button(action: {
@@ -32,9 +33,10 @@ struct CellphoneView: View {
                         self.onClickLeft()
                     }) {
                         Image("botao_esquerda")
+                            .padding(.top)
                     }.buttonStyle(PlainButtonStyle())
                     
-                    Image("charme")
+                    //Image("charme")
                     
                     
                     Button(action: {
@@ -42,9 +44,10 @@ struct CellphoneView: View {
                         self.onClickRight()
                     }) {
                         Image("botao_direita")
+                            .padding(.top)
                     }.buttonStyle(PlainButtonStyle())
                     
-                }
+                }.edgesIgnoringSafeArea(.bottom)
             }
         }
     }
@@ -55,7 +58,7 @@ struct CellphoneView: View {
         Group {
         CellphoneView()
         
-            CellphoneView(onClickLeft:)
+           // CellphoneView(onClickLeft:)
          .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
         }
     }

@@ -11,15 +11,11 @@ import GoogleMobileAds
 
 struct EndGameView: View {
     
-     var green_tone = Color.init(red: 0.63, green: 0.77, blue: 0.23)
+    var green_tone = Color.init(red: 0.63, green: 0.77, blue: 0.23)
     @Binding  var isActive: Bool
+    @State var points: Int
     
     var body: some View {
-        
-        //var interAd: GADInterstitial!
-        //var rewardAd: GADRewardedAd!
-        
- 
         
         NavigationView {
         GeometryReader { geometry in
@@ -36,67 +32,54 @@ struct EndGameView: View {
                                 Image("background01"))
                             .opacity(1.0)
                                 .edgesIgnoringSafeArea(.all)
-                           VStack {
-                            
-                            
-                            
-                               Spacer()
-                            
-                                Text("Você perdeu!")
-                                .fontWeight(.black)
-                                .foregroundColor(self.green_tone)
-                                .font(Font.system(size: 30, design: Font.Design.monospaced))
-                                .padding(.bottom)
-                            
-                                /*Text("pontos")
-                                .fontWeight(.black)
-                                .foregroundColor(self.green_tone)
-                                .font(Font.system(size: 30, design: Font.Design.monospaced))
-                                .padding(.bottom)*/
-                                
-                                //Spacer()
-                            
-                           /* HStack {
-                                
-                                
-                                //reviver button
-                                ZStack{
-                                    
-                                    Rectangle()
-                                        .foregroundColor(self.green_tone)
-                                        .frame(width: geometry.size.height/4, height: geometry.size.height/4, alignment: .center)
-                                        .cornerRadius(12.0)
-                                
-                                    VStack  {
-                                     Image("play_video_icon")
-                                        
-                                    Text("Reviver")
-                                    .fontWeight(.black)
-                                        .foregroundColor(Color.black)
-                                    .font(Font.system(size: 16, design: Font.Design.monospaced))
-                                        //.padding()
-                                    Text("Veja um vídeo")
-                                    .fontWeight(.black)
-                                        .foregroundColor(Color.black)
-                                    .font(Font.system(size: 12, design: Font.Design.monospaced))
-                                       
-                                    }
-                                }
+                           
                         
-                            }*/
+                       Spacer()
+                        VStack {
+                        
+                            //Spacer()
                             
-                            Text("< Toque nas teclas para reiniciar >")
+                            VStack {
+                                Image("trofeu")
+                                
+                                Text("You made")
                                 .fontWeight(.black)
                                 .foregroundColor(self.green_tone)
+                                .font(Font.system(size: 30, design: Font.Design.monospaced))
+                                .fontWeight(.bold)
+                                .padding(.all)
+                                
+                                Text("\(self.points)")
+                                //Text(String(format: "%03d", self.points))
+                                .fontWeight(.black)
+                                .foregroundColor(self.green_tone)
+                                .font(Font.system(size: 130, design: Font.Design.monospaced))
+                                .fontWeight(.bold)
+                                .padding(.all)
+                                
+                                Text("points")
+                                .fontWeight(.black)
+                                .foregroundColor(self.green_tone)
+                                .font(Font.system(size: 30, design: Font.Design.monospaced))
+                                .fontWeight(.bold)
+                                .padding(.all)
+                            }
+                            
+                            Spacer()
+                            
+                            Text("Press any button to play again")
+                                .fontWeight(.regular)
+                                .foregroundColor(self.green_tone.opacity(0.5))
                                 .font(Font.system(size: 16, design: Font.Design.monospaced))
+                                .multilineTextAlignment(.center)
                                 .padding(.bottom)
+                                .frame(width: geometry.size.width - (geometry.size.width/5), alignment: .center)
                             
                             
-                               Spacer()
-                                   
-                        
-                               
+                            Spacer() 
                            }
+                        
+                        Spacer()
                                
                                       CellphoneView(onClickLeft: {
                                         Model.shared.load()
@@ -121,16 +104,20 @@ struct EndGameView: View {
     
 }
 
-//struct EndGameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//        EndGameView(isActive: true)
-//
-//            EndGameView(isActive: true)
-//         .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-//        }
-//    }
-//}
+
+
+
+/*struct EndGameView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+        //EndGameView(isActive: true)
+
+            //EndGameView(isActive: true)
+            EndGameView(isActive: true)
+         .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+        }
+    }
+}
 
 /*extension ViewController: GADInterstitialDelegate {
     
@@ -191,3 +178,5 @@ extension ViewController: GADInterstitialDelegate {
     }
 }
 */
+ 
+ */

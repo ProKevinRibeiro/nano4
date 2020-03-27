@@ -41,7 +41,7 @@ struct FirstView: View {
                     
                         Image("snake_menu")
                         
-                        Text("< Toque nas teclas para iniciar >")
+                        Text("Press any button to play")
                             .fontWeight(.black)
                             .foregroundColor(self.green_tone)
                             .font(Font.system(size: 16, design: Font.Design.monospaced))
