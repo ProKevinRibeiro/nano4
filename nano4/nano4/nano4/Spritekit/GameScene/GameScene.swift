@@ -203,6 +203,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func moveToLeft() {
         
+        if stopPositionUpdating {
+            return
+        }
+        
         for bar in barSpawner.bars {
             
             if player.node.position.x > bar.node.position.x {
@@ -224,6 +228,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func moveToRight() {
+        
+        if stopPositionUpdating {
+            return
+        }
         
         for bar in barSpawner.bars {
             

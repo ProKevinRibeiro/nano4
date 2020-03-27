@@ -78,12 +78,12 @@ class BarSpawner: Spawner {
         
         let barNode = (self.scene.childNode(withName: "bar")!.copy() as! SKNode)
         
-        let barNodeHalfHeight = barNode.frame.size.height/2
+        let screenTenWidht = self.scene.frame.size.width/10
         
-        let spawnPoint: [CGPoint] = [CGPoint(x: (-2*self.scene.size.width/5 + barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight),
-                                     CGPoint(x: (-self.scene.size.width/5 + barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight),
-                                     CGPoint(x: (self.scene.size.width/5 - barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight),
-                                     CGPoint(x: (2*self.scene.size.width/5 - barNodeHalfHeight), y: self.scene.size.height/2 + barNodeHalfHeight)]
+        let spawnPoint: [CGPoint] = [CGPoint(x: (-2*self.scene.size.width/5 + screenTenWidht), y: self.scene.size.height/2 + screenTenWidht),
+                                     CGPoint(x: (-self.scene.size.width/5 + screenTenWidht), y: self.scene.size.height/2 + screenTenWidht),
+                                     CGPoint(x: (self.scene.size.width/5 - screenTenWidht), y: self.scene.size.height/2 + screenTenWidht),
+                                     CGPoint(x: (2*self.scene.size.width/5 - screenTenWidht), y: self.scene.size.height/2 + screenTenWidht)]
         
         barNode.position = spawnPoint.randomElement()!
         
