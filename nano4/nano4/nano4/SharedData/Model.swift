@@ -27,7 +27,7 @@ class Model{
         
         scene = GameScene(fileNamed: "GameScene.sks")!
         
-        scene.scaleMode = .aspectFit
+        scene.scaleMode = .aspectFill
         
         if gameVc != nil {
             gameVc.load()
