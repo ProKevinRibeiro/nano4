@@ -31,7 +31,7 @@ struct ContentView: View {
             ZStack {
 
                 NavigationLink(
-                    destination: EndGameView(isActive: self.$shouldDisplayEndGame).navigationBarBackButtonHidden(true),
+                    destination: EndGameView(isActive: self.$shouldDisplayEndGame, points: self.points).navigationBarBackButtonHidden(true),
                     isActive: self.$shouldDisplayEndGame)
                 {
                     EmptyView()
@@ -45,32 +45,39 @@ struct ContentView: View {
                 
                 
                 ZStack {
+                    
                     VStack {
-                        HStack {
-                            Text("\(self.points)")
-    
-                            .font(Font.system(size: 25, design: Font.Design.monospaced))
-                            .padding(.top)
+                       
+                        VStack {
+                            HStack {
+                                
+                                Spacer()
+                                Image("trofeu")
+                                
+                                Text("0\(self.points)")
+        
+                                    .font(Font.system(size: 25, design: Font.Design.monospaced))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.black)
+                                
 
-                            
-                            /*Spacer()
-                            
-                            Image("config_icon")
-                            .padding(.top)
-                                .padding()*/
-                    }
-                    .frame(width: (geometry.size.width), height: (geometry.size.height/9))
-                        .background(Color.black.opacity(0.3))
-                        .edgesIgnoringSafeArea(.top)
-                            
+                                Spacer()
+                                
+                            } .frame(width: (geometry.size.width/2), height: (geometry.size.height/10))
+                            .background(Color.black.opacity(0.3))
+                              
+                                                  
+                        }
                         
-                        
+                        VStack {
+                            Spacer()
+                            //Spacer()
+                        }
                         Spacer()
-                        
                     }
-                                               
                     
                     
+                   
                     CellphoneView(onClickLeft: {
                         Model.shared.scene!.moveToLeft()
      
