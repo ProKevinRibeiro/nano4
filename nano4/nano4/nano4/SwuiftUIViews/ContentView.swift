@@ -11,9 +11,9 @@ import GoogleMobileAds
 
 struct ContentView: View {
     //passando a variavel pontos para o swiftUI
-       
-       @State var points: Int = 0
-
+    
+    @State var points: Int = 0
+    
     @State var adDelegateWrapper: AdDelegateWrapper?
     @State var rewardedAd: GADRewardedAd?
     //função do ads
@@ -22,7 +22,7 @@ struct ContentView: View {
     @State var yPosition = 0.0
     @State var shouldDisplayEndGame: Bool = false
     @State var shouldDisplayAd = false
-
+    
     
     var body: some View {
         
@@ -50,7 +50,7 @@ struct ContentView: View {
                                 Image("trofeu")
                                 
                                 Text("0\(self.points)")
-        
+                                    
                                     .font(Font.system(size: 25, design: Font.Design.monospaced))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.black)
@@ -81,7 +81,7 @@ struct ContentView: View {
                    
                    CellphoneView(onClickLeft: {
                         Model.shared.scene!.moveToLeft()
-     
+                        
                     }, onClickRight: {
                         
                         Model.shared.scene!.moveToRight()
@@ -103,14 +103,14 @@ struct ContentView: View {
             }.onAppear(){
                 self.loadAd()
                 print("Show display ad: \(self.shouldDisplayAd)")
-//                if self.shouldDisplayAd {
-//                    self.showAd()
-//                }
+                //                if self.shouldDisplayAd {
+                //                    self.showAd()
+                //                }
                 Model.shared.scene.onGameOver = {
                     print("jogo acabou")
                     self.showAd()
                     //self.shouldDisplayAd = false
-                   // self.shouldDisplayAd.toggle()
+                    // self.shouldDisplayAd.toggle()
                     print("Show display ad model: \(self.shouldDisplayAd)")
                     //self.isDirty.toggle()
                     
@@ -128,25 +128,25 @@ struct ContentView: View {
     func showAd() {
         
         print("Vou mostrar o ad")
-            guard let ad = self.rewardedAd, ad.isReady else { return }
-            guard let vc = UIApplication.shared.windows.first?.rootViewController else { return }
-            self.adDelegateWrapper = AdDelegateWrapper(contentView: self)
-            
-            ad.present(fromRootViewController: vc, delegate: self.adDelegateWrapper!)
+        guard let ad = self.rewardedAd, ad.isReady else { return }
+        guard let vc = UIApplication.shared.windows.first?.rootViewController else { return }
+        self.adDelegateWrapper = AdDelegateWrapper(contentView: self)
+        
+        ad.present(fromRootViewController: vc, delegate: self.adDelegateWrapper!)
     }
-
+    
     func loadAd() {
-              rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-2288763971904962/2217520253")
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-2288763971904962/2217520253")
         //        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313") // sets debug
         
         print("Loading ad")
-                self.rewardedAd?.load(GADRequest()) { error in
-                    if let error = error {
-                        
-                    } else {
-                        print("Loaded ad")
-                    }
-                }
+        self.rewardedAd?.load(GADRequest()) { error in
+            if let error = error {
+                
+            } else {
+                print("Loaded ad")
+            }
+        }
     }
 }
 
