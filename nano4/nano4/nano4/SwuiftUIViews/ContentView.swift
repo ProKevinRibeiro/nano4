@@ -19,7 +19,7 @@ struct ContentView: View {
     //função do ads
     
      @State var isDirty = false
-    
+    @State var yPosition = 0.0
     @State var shouldDisplayEndGame: Bool = false
     @State var shouldDisplayAd = false
 
@@ -27,16 +27,10 @@ struct ContentView: View {
     var body: some View {
         
         GeometryReader { geometry in
-                
+            // yPosition = Double(geometry.size.height/2)
             ZStack {
 
-                NavigationLink(
-                    destination: EndGameView(isActive: self.$shouldDisplayEndGame, points: self.points).navigationBarBackButtonHidden(true),
-                    isActive: self.$shouldDisplayEndGame)
-                {
-                    EmptyView()
-
-                }
+             
                 
                 
                 GameViewAdapter()
@@ -44,11 +38,12 @@ struct ContentView: View {
                 
                 
                 
-                ZStack {
+                //ZStack {
                     
-                    VStack {
+                    //VStack {
                        
                         VStack {
+                            VStack {
                             HStack {
                                 
                                 Spacer()
@@ -59,26 +54,32 @@ struct ContentView: View {
                                     .font(Font.system(size: 25, design: Font.Design.monospaced))
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.black)
-                                
+                                    
 
                                 Spacer()
                                 
-                            } .frame(width: (geometry.size.width/2), height: (geometry.size.height/10))
+                                
+                                }
+                            .frame(width: (geometry.size.width/2), height: (geometry.size.height/10))
                             .background(Color.black.opacity(0.3))
-                              
-                                                  
-                        }
+                            .padding(.top)
+                            }.padding(.top)
+                           Spacer()
+                            
+                        }.padding(.top)
+                        .edgesIgnoringSafeArea(.all)
+                           // .offset(y: -(geometry.size.width/2))
                         
-                        VStack {
+                        /*VStack {
                             Spacer()
                             //Spacer()
-                        }
-                        Spacer()
-                    }
+                        }*/
+                        //Spacer()
+                    //}
                     
                     
                    
-                    CellphoneView(onClickLeft: {
+                   CellphoneView(onClickLeft: {
                         Model.shared.scene!.moveToLeft()
      
                     }, onClickRight: {
@@ -86,8 +87,16 @@ struct ContentView: View {
                         Model.shared.scene!.moveToRight()
                     })
                     
+                
+                NavigationLink(
+                                 destination: EndGameView(isActive: self.$shouldDisplayEndGame, points: self.points).navigationBarBackButtonHidden(true),
+                                 isActive: self.$shouldDisplayEndGame)
+                             {
+                                 EmptyView()
+
+                             }
                    
-                }
+                //}
                 
                 
                 
