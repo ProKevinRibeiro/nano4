@@ -8,12 +8,14 @@
 
 import SwiftUI
 import GoogleMobileAds
+import Firebase
 
 struct EndGameView: View {
     
     var green_tone = Color.init(red: 0.63, green: 0.77, blue: 0.23)
     @Binding  var isActive: Bool
     @State var points: Int
+    @State var quantity: Int = 0
     
     var body: some View {
         
@@ -84,10 +86,22 @@ struct EndGameView: View {
                                       CellphoneView(onClickLeft: {
                                         Model.shared.load()
                                                 self.isActive = false
+                                        
+                                        self.quantity = self.quantity + 1
+                                        Analytics.logEvent("Play_again_quantity_acumulated", parameters:[
+                                            AnalyticsParameterQuantity : String(self.quantity)
+                                            ]
+                                        )
                                                              
                                             }, onClickRight: {
                                                 Model.shared.load()
                                                self.isActive = false
+                                                
+                                                self.quantity = self.quantity + 1
+                                                Analytics.logEvent("Play_again_quantity_acumulated", parameters:[
+                                                    AnalyticsParameterQuantity : String(self.quantity)
+                                                    ]
+                                                )
                                     })
                        }
                        
@@ -96,6 +110,10 @@ struct EndGameView: View {
         }.onAppear() {
             print("chamou o load do onAppear")
             //self.loadAd()
+            Analytics.logEvent("Points_on_the_play", parameters:[
+                AnalyticsParameterQuantity : String(self.points)
+                ]
+            )
             
             }
         }
