@@ -75,7 +75,7 @@
 		644F8512241846F700412309 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		644F85142418478400412309 /* BarSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSpawner.swift; sourceTree = "<group>"; };
 		64A40144242D54E500138B4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		64F90998240EDEB700FF621E /* nano4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nano4.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		64F90998240EDEB700FF621E /* Have a Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Have a Snake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64F9099B240EDEB700FF621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64F9099D240EDEB700FF621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		64F9099F240EDEB700FF621E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 		64F90999240EDEB700FF621E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				64F90998240EDEB700FF621E /* nano4.app */,
+				64F90998240EDEB700FF621E /* Have a Snake.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -294,7 +294,7 @@
 			);
 			name = nano4;
 			productName = nano4;
-			productReference = 64F90998240EDEB700FF621E /* nano4.app */;
+			productReference = 64F90998240EDEB700FF621E /* Have a Snake.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -591,7 +591,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.appleDeveloperAcademy.HaveASnake;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Have a Snake";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -614,7 +614,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.appleDeveloperAcademy.HaveASnake;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Have a Snake";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
