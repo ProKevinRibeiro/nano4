@@ -19,7 +19,7 @@ struct FirstView: View {
     var body: some View {
         NavigationView {
         GeometryReader { geometry in
-            if(geometry.size.width < geometry.size.height) {
+           // if(geometry.size.width < geometry.size.height) {
                 
                 NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true),
                                                       isActive: self.$isActive) {
@@ -27,32 +27,41 @@ struct FirstView: View {
                                             
                 }
             
-                VStack{
+               // VStack{
                         
                      ZStack {
                         //chama a content
-                       Image("background01")
-                           .edgesIgnoringSafeArea(.all)
+                        Rectangle()
+                                                   .foregroundColor(Color.black.opacity(0.2))
+                                                   .background(
+                                                       Image("fundo-2"))
+                                                   .opacity(1.0)
+                                                       .edgesIgnoringSafeArea(.all)
+                      // Image("fundo-2")
+                         //  .edgesIgnoringSafeArea(.all)
                             
                        // HStack (alignment: .center) {
-                        VStack {
-                            
-                        Spacer()
-                    
-                        Image("snake_menu")
+                            VStack {
+                                
+                            Spacer()
                         
-                        Text("Press any button to play")
-                            .fontWeight(.black)
-                            .foregroundColor(self.green_tone)
-                            .font(Font.system(size: 16, design: Font.Design.monospaced))
-                            .padding(.bottom)
+                            Image("logo")
                             
-                         Spacer()
+                            Spacer()
+                                
+                            Text("Press any button to play")
+                                .fontWeight(.regular)
+                                .foregroundColor(self.green_tone)
+                                .font(Font.system(size: 16, design: Font.Design.monospaced))
+                                
+                             Spacer()
+                                 Spacer()
+                        
                         }
                           
                        
                        }
-                }
+               // }
                     
                 //}
                 
@@ -67,7 +76,7 @@ struct FirstView: View {
             }
         }
     }
-}
+//}
 }
 
 struct MenuView_Previews: PreviewProvider {
