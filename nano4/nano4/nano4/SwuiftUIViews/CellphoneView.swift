@@ -50,6 +50,7 @@ struct CellphoneView: View {
                 }.edgesIgnoringSafeArea(.bottom)
             }
         }
+        .statusBar(hidden: true)
     }
 }
 

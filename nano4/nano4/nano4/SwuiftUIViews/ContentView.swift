@@ -122,7 +122,7 @@ struct ContentView: View {
                 }
             }
         }
-        
+        .statusBar(hidden: true)
     }
     
     func showAd() {

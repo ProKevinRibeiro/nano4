@@ -117,6 +117,7 @@ struct EndGameView: View {
             
             }
         }
+        .statusBar(hidden: true)
     }
         
     

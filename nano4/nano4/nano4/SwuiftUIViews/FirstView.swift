@@ -75,6 +75,7 @@ struct FirstView: View {
                 
             }
         }
+        .statusBar(hidden: true)
     }
 //}
 }
