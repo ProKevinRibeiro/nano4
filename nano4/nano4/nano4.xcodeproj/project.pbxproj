@@ -584,11 +584,12 @@
 				DEVELOPMENT_TEAM = PS78UKHFKZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = nano4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.dev.KevinRibeiro.nano4;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.appleDeveloperAcademy.HaveASnake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -605,11 +606,12 @@
 				DEVELOPMENT_TEAM = PS78UKHFKZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = nano4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.dev.KevinRibeiro.nano4;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.appleDeveloperAcademy.HaveASnake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
