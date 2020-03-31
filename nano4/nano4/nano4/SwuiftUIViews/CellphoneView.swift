@@ -9,6 +9,30 @@
 import Foundation
 import SwiftUI
 
+extension View {
+    func onTouchDownGesture(callback: @escaping () -> Void) -> some View {
+        modifier(OnTouchDownGestureModifier(callback: callback))
+    }
+}
+
+private struct OnTouchDownGestureModifier: ViewModifier {
+    @State private var tapped = false
+    let callback: () -> Void
+
+    func body(content: Content) -> some View {
+        content
+            .simultaneousGesture(DragGesture(minimumDistance: 0)
+                .onChanged { _ in
+                    if !self.tapped {
+                        self.tapped = true
+                        self.callback()
+                    }
+                }
+                .onEnded { _ in
+                    self.tapped = false
+                })
+    }
+}
 
 struct CellphoneView: View {
     
@@ -16,7 +40,6 @@ struct CellphoneView: View {
     var onClickRight: () -> Void
     
     var body: some View {
-        
         
         ZStack {
             Image("fundo").resizable()
@@ -28,24 +51,34 @@ struct CellphoneView: View {
                 }
                 HStack {
                     
-                    Button(action: {
-                        
-                        self.onClickLeft()
-                    }) {
-                        Image("botao_esquerda")
-                            .padding(.top)
-                    }.buttonStyle(PlainButtonStyle())
+//                    Button(action: {
+//
+//                        self.onClickLeft()
+//                    }) {
+//                        Image("botao_esquerda")
+//                            .padding(.top)
+//                    }.buttonStyle(PlainButtonStyle())
                     
-                    //Image("charme")
+                    Image("botao_esquerda")
+                        .padding(.top)
+                        .onTouchDownGesture {
+                            self.onClickLeft()
+                        }
                     
-                    
-                    Button(action: {
-                        
+                    Image("botao_direita")
+                    .padding(.top)
+                    .onTouchDownGesture {
                         self.onClickRight()
-                    }) {
-                        Image("botao_direita")
-                            .padding(.top)
-                    }.buttonStyle(PlainButtonStyle())
+                    }
+                    
+                    
+//                    Button(action: {
+//
+//                        self.onClickRight()
+//                    }) {
+//                        Image("botao_direita")
+//                            .padding(.top)
+//                    }.buttonStyle(PlainButtonStyle())
                     
                 }.edgesIgnoringSafeArea(.bottom)
             }
