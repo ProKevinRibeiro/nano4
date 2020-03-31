@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "64F90997240EDEB700FF621E"
-               BuildableName = "nano4.app"
+               BuildableName = "Have a Snake.app"
                BlueprintName = "nano4"
                ReferencedContainer = "container:nano4.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64F90997240EDEB700FF621E"
-            BuildableName = "nano4.app"
+            BuildableName = "Have a Snake.app"
             BlueprintName = "nano4"
             ReferencedContainer = "container:nano4.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64F90997240EDEB700FF621E"
-            BuildableName = "nano4.app"
+            BuildableName = "Have a Snake.app"
             BlueprintName = "nano4"
             ReferencedContainer = "container:nano4.xcodeproj">
          </BuildableReference>
