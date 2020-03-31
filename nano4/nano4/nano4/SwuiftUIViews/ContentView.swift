@@ -141,7 +141,7 @@ struct ContentView: View {
     }
     
     func loadAd() {
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-2288763971904962/2217520253")
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-6710438178084678/8537635578")
         //        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313") // sets debug
         
         print("Loading ad")
