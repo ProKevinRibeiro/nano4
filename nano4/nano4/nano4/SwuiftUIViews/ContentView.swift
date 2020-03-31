@@ -12,6 +12,10 @@ import GoogleMobileAds
 struct ContentView: View {
     //passando a variavel pontos para o swiftUI
     
+    init(){
+        UINavigationBar.setAnimationsEnabled(false)
+    }
+    
     @State var points: Int = 0
     
     @State var adDelegateWrapper: AdDelegateWrapper?
@@ -93,6 +97,7 @@ struct ContentView: View {
                                  isActive: self.$shouldDisplayEndGame)
                              {
                                  EmptyView()
+                                
 
                              }
                    
