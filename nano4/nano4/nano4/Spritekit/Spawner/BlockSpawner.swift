@@ -28,7 +28,7 @@ class BlockSpawner: Spawner {
         
         self.lineSpawnCount += 1
         
-        if lineSpawnCount < 10 {
+        if lineSpawnCount < 5 {
             kindOfSpawn = "oneBlock"
         }
         else {
