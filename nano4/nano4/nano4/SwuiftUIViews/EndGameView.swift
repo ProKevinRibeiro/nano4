@@ -118,6 +118,11 @@ struct EndGameView: View {
             }
         }
         .statusBar(hidden: true)
+        .onDisappear() {
+            Model.shared.scene.onChangePoint(0)
+        }
+    
+        
     }
         
     
