@@ -19,18 +19,20 @@
 	<key>STORAGE_BUCKET</key>
 	<string>haveasnake.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:223442951406:ios:aa860d00fd2fb5deb5e7ff</string>
 	<key>DATABASE_URL</key>
 	<string>https://haveasnake.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-6710438178084678~4598390569</string>
 </dict>
 </plist>
